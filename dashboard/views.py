@@ -8,3 +8,9 @@ def home(request):
 
 def projects(request):
     return render(request, "dashboards/projects.html")
+
+def test(request):
+    return render(request, "dashboard/index2.html")
+
+def home(request):
+    return render(request, "dashboard/home.html")
