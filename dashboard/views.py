@@ -4,6 +4,9 @@ from .models import *
 from django.contrib import messages
 from django.shortcuts import redirect
 import sweetify
+import csv
+from django.http import HttpResponse
+
 # Create your views here.
 
 
@@ -44,3 +47,17 @@ def create_hr_manager(request):
     manager_form = ManagerForm()
     managers = Manager.objects.all()
     return render(request=request, template_name="dashboard/create_hr_final.html", context={'manager_form': manager_form, 'managers': managers})
+
+def export_managers_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="managers.csv"'
+    response.write(u'\ufeff'.encode('utf8'))
+
+    writer = csv.writer(response)
+    writer.writerow(['id','persian_name', 'english_name', 'code', 'order', 'manager_status', 'queue_id', 'headquarter_id'])
+
+    managers = Manager.objects.all().values_list('id','persian_name', 'english_name', 'code', 'order', 'manager_status', 'queue_id', 'headquarter_id')
+    for manager in managers:
+        writer.writerow(manager)
+
+    return response

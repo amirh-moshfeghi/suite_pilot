@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import export_managers_csv
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -12,5 +13,6 @@ urlpatterns = [
     path('index/', views.index_2, name='index'),
     path('index_final/', views.index_final, name='index_final'),
     path('create_hr_final/', views.create_hr_manager, name='create_hr_manager'),
+    path('export/', export_managers_csv, name='export_managers_csv'),
 
 ]
