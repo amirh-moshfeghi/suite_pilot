@@ -14,5 +14,8 @@ urlpatterns = [
     path('index_final/', views.index_final, name='index_final'),
     path('create_hr_final/', views.create_hr_manager, name='create_hr_manager'),
     path('export/', export_managers_csv, name='export_managers_csv'),
+    path('create_hr_final/update_manager/<int:id>', views.update_manager, name='update_manager'),
+    path('create_hr_final/delete_manager/<int:id>', views.delete_manager, name='delete_manager'),
+    path('create_hr_final/update_manager/update_manager_record/<int:id>', views.update_manager_record, name='update_manager_record'),
 
 ]

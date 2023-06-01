@@ -6,6 +6,9 @@ from django.shortcuts import redirect
 import sweetify
 import csv
 from django.http import HttpResponse
+from django.template import loader
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -61,3 +64,35 @@ def export_managers_csv(request):
         writer.writerow(manager)
 
     return response
+
+
+def delete_manager(request, id):
+    manager = Manager.objects.get(id=id)
+    manager.delete()
+    return HttpResponseRedirect(reverse('create_hr_final'))
+
+
+def update_manager(request, id):
+    manager = Manager.objects.get(id=id)
+    template = loader.get_template('dashboard/update_manager.html')
+    context = {
+        'manager': manager,
+    }
+    return HttpResponse(template.render(context, request))
+
+def update_manager_record(request, id):
+  persian_name = request.POST['persian_name']
+  code = request.POST['code']
+  english_name = request.POST['english_name']
+  order = request.POST['order']
+  manager_status = request.POST['manager_status']
+  code = request.POST['code']
+  manager = Manager.objects.get(id=id)
+  manager.persian_name = persian_name
+  manager.english_name = english_name
+  manager.code = code
+  manager.order = order
+  manager.manager_status = manager_status
+
+  manager.save()
+  return HttpResponseRedirect(reverse('create_hr_manager'))
