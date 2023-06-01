@@ -11,6 +11,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('index/', views.index_2, name='index'),
     path('index_final/', views.index_final, name='index_final'),
-    path('create_hr_final/', views.create_hr_final, name='create_hr_final'),
+    path('create_hr_final/', views.create_hr_manager, name='create_hr_manager'),
 
 ]
