@@ -6,14 +6,15 @@
 							<!--begin::Page title-->
 							<div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap mt-n5 mt-lg-0 me-lg-2 pb-2 pb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}">
 								<!--begin::Heading-->
-								<h1 class="text-dark fw-bold my-0 fs-2">داشبورد</h1>
+								<h1 class="text-dark fw-bold my-0 fs-2">HR</h1>
 								<!--end::Heading-->
 								<!--begin::Breadcrumb-->
 								<ul class="breadcrumb fw-semibold fs-base my-1">
 									<li class="breadcrumb-item text-muted">
-										<a href="{% url 'home' %}" class="text-muted">خانه</a>
+										<a href="../../demo7/dist/index.html" class="text-muted">HR</a>
 									</li>
-									<li class="breadcrumb-item text-muted">داشبورد اصلی</li>
+									<li class="breadcrumb-item text-muted">مدیریت</li>
+									<li class="breadcrumb-item text-muted">اطلاعات پایه</li>
 
 								</ul>
 								<!--end::Breadcrumb-->
@@ -34,7 +35,9 @@
 								</div>
 								<!--end::کناری mobile toggle-->
 								<!--begin::Logo-->
-
+								<a href="../../demo7/dist/index.html" class="d-flex align-items-center">
+									<img alt="Logo" src="assets3/media/logos/demo7.svg" class="h-30px" />
+								</a>
 								<!--end::Logo-->
 							</div>
 							<!--end::Wrapper-->
@@ -150,7 +153,16 @@
 <!--end::Dropdown wrapper-->
 								<!--end::Invite user-->
 								<!--begin::ساختن app-->
-
+{#								<div class="d-flex ms-3">#}
+{#									<a href="#" class="btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">#}
+{#										<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->#}
+{#										<span class="svg-icon svg-icon-2 svg-icon-primary me-0 me-md-2">#}
+{#											<i class="ki-outline ki-notification-status fs-1 text-success"></i>#}
+{#										</span>#}
+{#										<!--end::Svg Icon-->#}
+{#										<span class="d-none d-md-inline">جدید اپلیکیشن</span>#}
+{#									</a>#}
+{#								</div>#}
 								<!--end::ساختن app-->
 								<!--begin::Theme mode-->
 								<div class="d-flex align-items-center ms-3">
@@ -318,7 +330,159 @@
 
 								<!--end::Quick Links-->
 								<!--begin::My apps links-->
-
+{#								<div class="app-navbar-item ms-3 ms-md-6">#}
+{#									<!--begin::Menu wrapper-->#}
+{#									<div class="btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">#}
+{#										<i class="ki-outline ki-abstract-26 fs-1"></i>#}
+{#									</div>#}
+{#									<!--begin::My apps-->#}
+{#									<div class="menu menu-sub menu-sub-dropdown menu-column w-100 w-sm-350px" data-kt-menu="true">#}
+{#										<!--begin::Card-->#}
+{#										<div class="card">#}
+{#											<!--begin::Card header-->#}
+{#											<div class="card-header">#}
+{#												<!--begin::Card title-->#}
+{#												<div class="card-title">اپلیکیشن ها </div>#}
+{#												<!--end::Card title-->#}
+{#												<!--begin::Card toolbar-->#}
+{#												<div class="card-toolbar">#}
+{#													<!--begin::Menu-->#}
+{#													<button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-end">#}
+{#														<i class="ki-outline ki-questionnaire-tablet fs-1 text-primary"></i>#}
+{#													</button>#}
+{#													<!--begin::Menu 3-->#}
+{#													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">#}
+{#														<!--begin::Heading-->#}
+{#														<div class="menu-item px-3">#}
+{#															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">WM</div>#}
+{#														</div>#}
+{#														<!--end::Heading-->#}
+{#														<!--begin::Menu item-->#}
+{#														<div class="menu-item px-3">#}
+{#															<a href="#" class="menu-link px-3">Create Invoice</a>#}
+{#														</div>#}
+{#														<!--end::Menu item-->#}
+{#														<!--begin::Menu item-->#}
+{#														<div class="menu-item px-3">#}
+{#															<a href="#" class="menu-link flex-stack px-3">Create Payment#}
+{#															<span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">#}
+{#																<i class="ki-outline ki-information fs-6"></i>#}
+{#															</span></a>#}
+{#														</div>#}
+{#														<!--end::Menu item-->#}
+{#														<!--begin::Menu item-->#}
+{#														<div class="menu-item px-3">#}
+{#															<a href="#" class="menu-link px-3">Generate Bill</a>#}
+{#														</div>#}
+{#														<!--end::Menu item-->#}
+{#														<!--begin::Menu item-->#}
+{#														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">#}
+{#															<a href="#" class="menu-link px-3">#}
+{#																<span class="menu-title">Subscription</span>#}
+{#																<span class="menu-arrow"></span>#}
+{#															</a>#}
+{#															<!--begin::Menu sub-->#}
+{#															<div class="menu-sub menu-sub-dropdown w-175px py-4">#}
+{#																<!--begin::Menu item-->#}
+{#																<div class="menu-item px-3">#}
+{#																	<a href="#" class="menu-link px-3">Plans</a>#}
+{#																</div>#}
+{#																<!--end::Menu item-->#}
+{#																<!--begin::Menu item-->#}
+{#																<div class="menu-item px-3">#}
+{#																	<a href="#" class="menu-link px-3">Billing</a>#}
+{#																</div>#}
+{#																<!--end::Menu item-->#}
+{#																<!--begin::Menu item-->#}
+{#																<div class="menu-item px-3">#}
+{#																	<a href="#" class="menu-link px-3">Statements</a>#}
+{#																</div>#}
+{#																<!--end::Menu item-->#}
+{#																<!--begin::Menu separator-->#}
+{#																<div class="separator my-2"></div>#}
+{#																<!--end::Menu separator-->#}
+{#																<!--begin::Menu item-->#}
+{#																<div class="menu-item px-3">#}
+{#																	<div class="menu-content px-3">#}
+{#																		<!--begin::Switch-->#}
+{#																		<label class="form-check form-switch form-check-custom form-check-solid">#}
+{#																			<!--begin::Input-->#}
+{#																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />#}
+{#																			<!--end::Input-->#}
+{#																			<!--end::Label-->#}
+{#																			<span class="form-check-label text-muted fs-6">Recuring</span>#}
+{#																			<!--end::Label-->#}
+{#																		</label>#}
+{#																		<!--end::Switch-->#}
+{#																	</div>#}
+{#																</div>#}
+{#																<!--end::Menu item-->#}
+{#															</div>#}
+{#															<!--end::Menu sub-->#}
+{#														</div>#}
+{#														<!--end::Menu item-->#}
+{#														<!--begin::Menu item-->#}
+{#														<div class="menu-item px-3 my-1">#}
+{#															<a href="#" class="menu-link px-3">Settings</a>#}
+{#														</div>#}
+{#														<!--end::Menu item-->#}
+{#													</div>#}
+{#													<!--end::Menu 3-->#}
+{#													<!--end::Menu-->#}
+{#												</div>#}
+{#												<!--end::Card toolbar-->#}
+{#											</div>#}
+{#											<!--end::Card header-->#}
+{#											<!--begin::Card body-->#}
+{#											<div class="card-body py-5">#}
+{#												<!--begin::Scroll-->#}
+{#												<div class="mh-450px scroll-y me-n5 pe-5">#}
+{#													<!--begin::Row-->#}
+{#													<div class="row g-2">#}
+{#														<!--begin::Col-->#}
+{#														<div class="col-4">#}
+{#															<div class="symbol symbol-40px me-4">#}
+{#														<div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">WM</div>#}
+{#													</div>#}
+{#														</div>#}
+{#														<!--end::Col-->#}
+{#														<!--begin::Col-->#}
+{#														<div class="col-4">#}
+{#															<div class="symbol symbol-40px me-4">#}
+{#														<div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">HR</div>#}
+{#													</div>#}
+{#														</div>#}
+{#														<!--end::Col-->#}
+{#														<!--begin::Col-->#}
+{#														<div class="col-4">#}
+{#															<div class="symbol symbol-40px me-4">#}
+{#														<div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">RE</div>#}
+{#													</div>#}
+{#														</div>#}
+{#														<!--end::Col-->#}
+{#														<!--begin::Col-->#}
+{#														<div class="col-4">#}
+{#															<div class="symbol symbol-40px me-4">#}
+{#														<div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">PR</div>#}
+{#													</div>#}
+{#														</div>#}
+{#														<!--end::Col-->#}
+{#														<!--begin::Col-->#}
+{##}
+{##}
+{#														<!--end::Col-->#}
+{#													</div>#}
+{#													<!--end::Row-->#}
+{#												</div>#}
+{#												<!--end::Scroll-->#}
+{#											</div>#}
+{#											<!--end::Card body-->#}
+{#										</div>#}
+{#										<!--end::Card-->#}
+{#									</div>#}
+{#									<!--end::My apps-->#}
+{#									<!--end::Menu wrapper-->#}
+{#								</div>#}
 								<!--end::My apps links-->
 								<!--begin::Notifications-->
 								<div class="app-navbar-item ms-3 ms-md-6">
@@ -330,7 +494,7 @@
 									<!--begin::Menu-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
 										<!--begin::Heading-->
-										<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('{% static 'assets/media/misc/menu-header-bg.jpg' %}')">
+										<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/menu-header-bg.jpg')">
 											<!--begin::Title-->
 											<h3 class="text-white fw-semibold px-9 mt-10 mb-6">Notifications
 											<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
@@ -527,7 +691,10 @@
 												</div>
 												<!--end::Items-->
 												<!--begin::View more-->
-
+												<div class="py-3 text-center border-top">
+													<a href="../../demo31/dist/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
+													<i class="ki-outline ki-arrow-right fs-5"></i></a>
+												</div>
 												<!--end::View more-->
 											</div>
 											<!--end::Tab panel-->
@@ -536,7 +703,24 @@
 												<!--begin::Wrapper-->
 												<div class="d-flex flex-column px-9">
 													<!--begin::Section-->
-{#
+{#													<div class="pt-10 pb-0">#}
+{#														<!--begin::Title-->#}
+{#														<h3 class="text-dark text-center fw-bold">Get Pro Access</h3>#}
+{#														<!--end::Title-->#}
+{#														<!--begin::Text-->#}
+{#														<div class="text-center text-gray-600 fw-semibold pt-1">Outlines keep you honest. They stoping you from amazing poorly about drive</div>#}
+{#														<!--end::Text-->#}
+{#														<!--begin::Action-->#}
+{#														<div class="text-center mt-5 mb-9">#}
+{#															<a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>#}
+{#														</div>#}
+{#														<!--end::Action-->#}
+{#													</div>#}
+													<!--end::Section-->
+													<!--begin::Illustration-->
+{#													<div class="text-center px-4">#}
+{#														<img class="mw-100 mh-200px" alt="image" src="{% static 'assets3/media/illustrations/sketchy-1/1.png' %}" />#}
+{#													</div>#}
 													<!--end::Illustration-->
 												</div>
 												<!--end::Wrapper-->
@@ -790,3 +974,4 @@
 						</div>
 						<!--end::Container-->
 					</div>
+

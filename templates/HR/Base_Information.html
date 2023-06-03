@@ -1,0 +1,488 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+
+<html direction="rtl" dir="rtl" style="direction: rtl" >
+	<!--begin::Head-->
+	<head><base href=""/>
+		<title>نیر پارس</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="The most advanced پنل ادمین بوت استراپ Theme on Themeforest trusted by 100,000 beginners و professionals. Multi-demo, حالت تیره, RTL support و complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Flask & Laravel versions. Grab your copy now و get life-time updates for free." />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="مترونیک " />
+		<link rel="shortcut icon" href="assets3/media/logos/favicon.ico" />
+		<!--begin::Fonts(mوatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Vendor Stylesheets(used for this page only)-->
+		<link href="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
+		<link href="{% static 'assets3/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets2/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/css/style.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" style="background-image: url()" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getآیتم("data-theme") !== null ) { themeMode = localStorage.getآیتم("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::کناری-->
+                    {% include 'HR/Base_Information_Sidebar.html' %}
+				<!--end::کناری-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+
+                        {% include 'HR/Base_Information_Header.html' %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                    <div class="alert alert-dismissible bg-light-primary border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
+    <!--begin::Icon-->
+    <i class="ki-duotone ki-search-list fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+    <!--end::Icon-->
+
+    <!--begin::Wrapper-->
+    <div class="d-flex flex-column pe-0 pe-sm-10">
+        <!--begin::Title-->
+        <h5 class="mb-1">تبریک</h5>
+        <!--end::Title-->
+
+        <!--begin::Content-->
+        <span>{{ message}}</span>
+        <!--end::Content-->
+    </div>
+    <!--end::Wrapper-->
+
+    <!--begin::Close-->
+    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+        <i class="ki-duotone ki-cross fs-1 text-success"><span class="path1"></span><span class="path2"></span></i>
+    </button>
+    <!--end::Close-->
+</div>
+                        {% endfor %}
+                    {% endif %}
+<!--end::Alert-->
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Container-->
+						<div class="container-xxl" id="kt_content_container">
+							<!--begin::Row-->
+							<div class="row gy-5 g-xl-8">
+								<!--begin::Col-->
+								<div class="card mb-5 mb-xl-8">
+										<!--begin::Header-->
+										<div class="card-header border-0 pt-5">
+											<h3 class="card-title align-items-start flex-column">
+												<span class="card-label fw-bold fs-3 mb-1">جدول اطلاعات پایه</span>
+											</h3>
+											<div class="card-toolbar">
+												<!--begin::Menu-->
+												<button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+													<i class="ki-outline ki-category fs-6"></i>
+												</button>
+												<!--begin::Menu 2-->
+												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+													<!--begin::Menu item-->
+													<div class="menu-item px-3">
+														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">عملیات جدول اطلاعات پایه</div>
+													</div>
+													<!--end::Menu item-->
+													<!--begin::Menu separator-->
+													<div class="separator mb-3 opacity-75"></div>
+													<!--end::Menu separator-->
+													<!--begin::Menu item-->
+													<div class="menu-item px-3">
+														<a href="#" class=" er fs-6 px-8 py-4" data-bs-toggle="modal" data-bs-target="#kt_modal_create_api_key">ایجاد جدول جدید</a>
+													</div>
+													<!--end::Menu item-->
+													<!--begin::Menu item-->
+													<!--end::Menu item-->
+													<!--begin::Menu separator-->
+													<div class="separator mt-3 opacity-75"></div>
+													<!--end::Menu separator-->
+													<!--begin::Menu item-->
+													<div class="menu-item px-3">
+														<div class="menu-content px-3 py-3">
+															<a class="btn btn-primary btn-sm px-4" href="{% url 'export_managers_csv' %}">خروجی اکسل
+                                                             <i class="ki-duotone ki-folder-down fs-1x">
+ <i class="path1 fs-1x"></i>
+ <i class="path2 fs-1x"></i>
+</i>
+                                                            </a>
+
+														</div>
+													</div>
+													<!--end::Menu item-->
+												</div>
+												<!--end::Menu 2-->
+												<!--end::Menu-->
+											</div>
+										</div>
+										<!--end::Header-->
+										<!--begin::Body-->
+										<div class="card-body py-3">
+											<!--begin::Table container-->
+											<div class="table-responsive">
+												<!--begin::Table-->
+												<table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
+													<!--begin::Table head-->
+													<thead>
+														<tr class="fw-bold text-muted">
+															<th class="w-25px">
+																<div class="form-check form-check-sm form-check-custom form-check-solid">
+																	<input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-13-check" />
+																</div>
+															</th>
+															<th class="min-w-70px">کد مدیریت</th>
+                                                            <th class="min-w-150px">نام مدیریت</th>
+															<th class="min-w-150px">نام انگلیسی مدیریت</th>
+															<th class="min-w-120px">صف / ستاد</th>
+															<th class="min-w-120px">ترتیب</th>
+															<th class="min-w-120px">وضعیت</th>
+															<th class="min-w-100px text-center">عملیات</th>
+														</tr>
+													</thead>
+													<!--end::Table head-->
+													<!--begin::Table body-->
+													<tbody>
+                                                    {% for manager in managers %}
+														<tr>
+															<td>
+																<div class="form-check form-check-sm form-check-custom form-check-solid">
+																	<input class="form-check-input widget-13-check" type="checkbox" value="1" />
+																</div>
+															</td>
+															<td>
+																<a href="#" class="text-dark fw-bold text-hover-primary fs-6">{{ manager.code }}</a>
+															</td>
+															<td>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ manager.persian_name }}</a>
+
+															</td>
+															<td>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ manager.english_name }}</a>
+
+															</td>
+															<td>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">Agoda</a>
+																<span class="text-muted fw-semibold text-muted d-block fs-7">Houses & Hotels</span>
+															</td>
+															<td class="text-dark fw-bold text-hover-primary fs-6">{{ manager.order }}</td>
+															<td>
+																<span class="badge {% if manager.manager_status == 'فعال' %}badge-primary{% else %}badge-danger{% endif %}">{{ manager.manager_status}}</span>
+															</td>
+															<td class="text-end">
+																<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																	<i class="ki-outline ki-switch fs-2"></i>
+																</a>
+																<a href="update_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																	<i class="ki-outline ki-pencil fs-2"></i>
+																</a>
+																<a href="delete_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+																	<i class="ki-outline ki-trash fs-2"></i>
+																</a>
+															</td>
+														</tr>
+                                                    {% endfor %}
+
+													</tbody>
+													<!--end::Table body-->
+												</table>
+												<!--end::Table-->
+											</div>
+											<!--end::Table container-->
+										</div>
+										<!--begin::Body-->
+									</div>
+								<!--end::Col-->
+								<!--begin::Col-->
+
+							<!--end::Row-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
+							<!--begin::Copyright-->
+
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::کشوs-->
+		<!--begin::فعالیت ها drawer-->
+
+		<!--end::کشوs-->
+		<!--end::Main-->
+		<!--begin::Engage drawers-->
+		<!--begin::دموها drawer-->
+		<!--end::دموها drawer-->
+		<!--begin::کمک drawer-->
+
+		<!--end::کمک drawer-->
+		<!--end::Engage drawers-->
+		<!--begin::Engage modals-->
+		<!--end::Engage modals-->
+		<!--begin::Engage toolbar-->
+		<!--end::Engage toolbar-->
+		<!--begin::Scrolltop-->
+		<!--end::Scrolltop-->
+		<!--begin::Modals-->
+		<!--begin::Modal - ارتقا دهید plan-->
+		<!--end::Modal - ارتقا دهید plan-->
+		<!--begin::Modal - دعوت دوستs-->
+		<!--end::Modal - دعوت دوست-->
+		<!--begin::Modal - ساختن اپ-->
+		<!--end::Modal - ساختن اپ-->
+		<!--begin::Modal - Users جستجو-->
+		<!--end::Modal - Users جستجو-->
+            <div class="modal fade" id="kt_modal_create_api_key" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-650px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header" id="kt_modal_create_api_key_header">
+						<!--begin::Modal title-->
+						<h2>ایجاد جدول جدید</h2>
+						<!--end::Modal title-->
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-outline ki-cross fs-1"></i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+					<!--begin::Form-->
+					<form id="kt_modal_create_api_key_form" class="form"  method="POST">
+                        {% csrf_token %}
+						<!--begin::Modal body-->
+						<div class="modal-body py-10 px-lg-17">
+							<!--begin::Scroll-->
+							<div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_create_api_key_header" data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll" data-kt-scroll-offset="300px">
+								<!--begin::Notice-->
+								<div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-10 p-6">
+									<!--begin::Icon-->
+									<i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
+									<!--end::Icon-->
+									<!--begin::Wrapper-->
+									<div class="d-flex flex-stack flex-grow-1">
+										<!--begin::Content-->
+										<div class="fw-semibold">
+											<h4 class="text-gray-900 fw-bold">لطفا هنگام ورود اطلاعات دقت فرمایید</h4>
+										</div>
+										<!--end::Content-->
+									</div>
+									<!--end::Wrapper-->
+								</div>
+								<!--end::Notice-->
+								<!--begin::Input group-->
+								<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">نام مدیر</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="نام مدیر را به فارسی وارد کنید" name="persian_name" />#}
+                                    {{ manager_form.persian_name }}
+									<!--end::Input-->
+								</div>
+
+								<!--end::Input group-->
+								<!--begin::Input group-->
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">کد مدیر</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{manager_form.code}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">نام انگلیسی مدیر</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{manager_form.english_name}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">وضعیت مدیر</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{manager_form.manager_status}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2"> ترتیب </label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{manager_form.order}}
+
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+								<!--begin::Input group-->
+{#								<div class="d-flex flex-column mb-10 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">Category</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Select-->#}
+{#									<select name="category" data-control="select2" data-hide-search="true" data-placeholder="Select a Category..." class="form-select form-select-solid">#}
+{#										<option value="">Select a Category...</option>#}
+{#										<option value="1">CRM</option>#}
+{#										<option value="2">Project Alice</option>#}
+{#										<option value="3">Keenthemes</option>#}
+{#										<option value="4">General</option>#}
+{#									</select>#}
+{#									<!--end::Select-->#}
+{#								</div>#}
+{#								<!--end::Input group-->#}
+{#								<!--begin::Input group-->#}
+{#								<div class="mb-10">#}
+{#									<!--begin::Heading-->#}
+{#									<div class="mb-3">#}
+{#										<!--begin::Label-->#}
+{#										<label class="d-flex align-items-center fs-5 fw-semibold">#}
+{#											<span class="required">Specify Your API Method</span>#}
+{#											<span class="ms-1" data-bs-toggle="tooltip" title="Your billing numbers will be calculated based on your API method">#}
+{#												<i class="ki-outline ki-information-5 text-gray-500 fs-6"></i>#}
+{#											</span>#}
+{#										</label>#}
+{#										<!--end::Label-->#}
+{#										<!--begin::Description-->#}
+{#										<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>#}
+{#										<!--end::Description-->#}
+{#									</div>#}
+{#									<!--end::Heading-->#}
+{#									<!--begin::Row-->#}
+{#									<div class="fv-row">#}
+{#										<!--begin::Radio group-->#}
+{#										<div class="btn-group w-100" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button]">#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="1" />#}
+{#											<!--end::Input-->#}
+{#											Open API</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted active" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" checked="checked" value="2" />#}
+{#											<!--end::Input-->#}
+{#											SQL Call</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="3" />#}
+{#											<!--end::Input-->#}
+{#											UI/UX</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="4" />#}
+{#											<!--end::Input-->#}
+{#											Docs</label>#}
+{#											<!--end::Radio-->#}
+{#										</div>#}
+{#										<!--end::Radio group-->#}
+{#									</div>#}
+{#									<!--end::Row-->#}
+{#								</div>#}
+								<!--end::Input group-->
+							</div>
+							<!--end::Scroll-->
+						</div>
+						<!--end::Modal body-->
+						<!--begin::Modal footer-->
+						<div class="modal-footer flex-center">
+							<!--begin::Button-->
+							<button type="reset" id="kt_modal_create_api_key_cancel" class="btn btn-light me-3">لعو</button>
+							<!--end::Button-->
+							<!--begin::Button-->
+							<button type="submit" id="kt_modal_create_api_key_submit" class="btn btn-primary">
+								<span class="indicator-label">ثبت</span>
+								<span class="indicator-progress">کمی صبر کنید...
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+							</button>
+							<!--end::Button-->
+						</div>
+						<!--end::Modal footer-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modals-->
+		<!--begin::Javascript-->
+		<script>var hostUrl = "assets3/";</script>
+		<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+		<script src="{% static 'assets3/plugins/global/plugins.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/scripts.bundle.js' %}"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="{% static 'assets3/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::سفارشی Javascript(used for this page only)-->
+		<script src="{% static 'assets3/js/widgets.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/widgets.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/apps/chat/chat.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/create-app.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/users-search.js' %}"></script>
+		<!--end::سفارشی Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
