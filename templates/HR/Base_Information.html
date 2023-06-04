@@ -185,13 +185,12 @@
 																<span class="badge {% if manager.manager_status == 'فعال' %}badge-primary{% else %}badge-danger{% endif %}">{{ manager.manager_status}}</span>
 															</td>
 															<td class="text-end">
-																<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-																	<i class="ki-outline ki-switch fs-2"></i>
-																</a>
-																<a href="update_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																<a href="update_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"  data-bs-toggle="tooltip" data-bs-trigger="hover"
+                        data-bs-placement="bottom" data-bs-dismiss="click" title="ویرایش ">
 																	<i class="ki-outline ki-pencil fs-2"></i>
 																</a>
-																<a href="delete_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+																<a href="delete_manager/{{ manager.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"   data-bs-toggle="tooltip" data-bs-trigger="hover"
+                        data-bs-placement="bottom" data-bs-dismiss="click" title="حذف ">
 																	<i class="ki-outline ki-trash fs-2"></i>
 																</a>
 															</td>
