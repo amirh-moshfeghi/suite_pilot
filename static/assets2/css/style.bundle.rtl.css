@@ -186,17 +186,17 @@
 
 
 @font-face {
-    font-family: "IRANSansWeb";
-    src: url("../fonts/IRANSansWeb.eot"); /* IE */
-    src: url("../fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"), /* IE */
-    url("../fonts/IRANSansWeb.woff") format("woff"), /* Modern Browsers */
-    url("../fonts/IRANSansWeb.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-family: "IRANYEKAN";
+    src: url("../fonts/IRANYEKANREGULAR.eot"); /* IE */
+    src: url("../fonts/IRANYEKANREGULAR.eot?#iefix") format("embedded-opentype"), /* IE */
+    url("../fonts/IRANYEKANREGULAR.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/IRANYEKANREGULAR.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: normal;
 }
 
 body {
   margin: 0;
-  font-family: IRANSansWeb;
+  font-family: IRANYEKAN;
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -46198,7 +46198,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 13px !important;
   font-weight: 400;
-  font-family: Inter, IRANSansWeb, "sans-serif";
+  font-family:  "IRANYEKAN", "sans-serif";
 }
 @media (max-width: 991.98px) {
   html,

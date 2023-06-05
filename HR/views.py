@@ -5,8 +5,8 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.urls import reverse
 from Notifications.models import Notification
-from HR.forms import ManagerForm
-from HR.models import Manager
+from HR.forms import ManagerForm, CompanyForm
+from HR.models import Manager, Company
 
 
 def Base_information_Manager(request):
@@ -71,3 +71,45 @@ def update_manager_record(request, id):
 
 
       return HttpResponseRedirect(reverse('Base_information_Manager'))
+
+
+def Company_Base_Information(request):
+    if request.method == "POST":
+        company_form = CompanyForm(request.POST, request.FILES)
+        if company_form.is_valid():
+            company_form.save()
+            messages.success(request,'ثبت شرکت با موفقیت انجام شد')
+        else:
+            messages.error(request, 'مشکلی در ورودی اطلاعات.لطفا مجدد تلاش کنید')
+
+        return redirect("Company_Base_Information")
+    company_form = CompanyForm()
+    companies = Company.objects.all()
+    return render(request=request, template_name="HR/Company/Company.html", context={'company_form': company_form, 'companies': companies})
+
+
+def Update_Company_Base_Information(request, id):
+    title = request.POST['title']
+    code = request.POST['code']
+    english_title = request.POST['english_title']
+    company_status = request.POST['company_status']
+    company = Company.objects.get(id=id)
+    company.persian_name = title
+    company.english_name = english_title
+    company.code = code
+    company.manager_status = company_status
+
+    company.save()
+    Notification.objects.create(title="ویرایش شرکت", description=f" ویرایش شد{company.title}شرکت ")
+
+    return HttpResponseRedirect(reverse('Company_Base_Information'))
+
+def Update_Company(request, id):
+    company_form = CompanyForm()
+    company = Company.objects.get(id=id)
+    template = loader.get_template('HR/Company/Company_Base_Information_Update.html')
+    context = {
+        'company': company,
+        'company_form':company_form
+    }
+    return HttpResponse(template.render(context, request))
