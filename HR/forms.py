@@ -28,3 +28,36 @@ class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
+
+
+class DepartmentForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام معاونت را به فارسی وارد نمایید"})
+        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفانام معاونت را به انگلیسی وارد نمایید"})
+        self.fields["code"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد معاونت را وارد نمایید"})
+        self.fields["department_status"].widget.attrs.update({"class": "form-control form-control-solid" ,"placeholder":"لطفا وضعیت معاونت را وارد نمایید"})
+        self.fields["department_type"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نوع معاونت را انتخاب نمایید"})
+        self.fields["order"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا ترتیب معاونت را وارد نمایید"})
+        self.fields["company"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد شرکت را انتخاب نمایید"})
+
+    class Meta:
+        model = Department
+        fields = '__all__'
+
+
+class OUForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام واحد سازمانی را به فارسی وارد نمایید"})
+        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفانام واحد سازمانی را به انگلیسی وارد نمایید"})
+        self.fields["code"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد واحد سازمانی را وارد نمایید"})
+        self.fields["ou_status"].widget.attrs.update({"class": "form-control form-control-solid" ,"placeholder":"لطفا وضعیت واحد سازمانی را وارد نمایید"})
+        self.fields["order"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا ترتیب واحد سازمانی را وارد نمایید"})
+        self.fields["department"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد معاونت را انتخاب نمایید"})
+
+    class Meta:
+        model = OU
+        fields = '__all__'

@@ -38,13 +38,13 @@
 			<!--begin::Page-->
 			<div class="page d-flex flex-row flex-column-fluid">
 				<!--begin::کناری-->
-                    {% include 'HR/Company/Company_Sidebar.html' %}
+                    {% include 'HR/Department/Department_Sidebar.html' %}
 				<!--end::کناری-->
 				<!--begin::Wrapper-->
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 					<!--begin::Header-->
 
-                        {% include 'HR/Company/Company_Header.html' %}
+                        {% include 'HR/Department/Department_Header.html' %}
 
                     {% if messages %}
                         {% for message in messages %}
@@ -86,7 +86,7 @@
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold fs-3 mb-1">جدول اطلاعات پایه شرکت</span>
+												<span class="card-label fw-bold fs-3 mb-1">جدول اطلاعات پایه معاونت</span>
 											</h3>
 											<div class="card-toolbar">
 												<!--begin::Menu-->
@@ -97,7 +97,7 @@
 												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
 													<!--begin::Menu item-->
 													<div class="menu-item px-3">
-														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">عملیات جدول اطلاعات پایه شرکت</div>
+														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">عملیات جدول اطلاعات پایه معاونت</div>
 													</div>
 													<!--end::Menu item-->
 													<!--begin::Menu separator-->
@@ -146,10 +146,12 @@
 																	<input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-13-check" />
 																</div>
 															</th>
-															<th class="min-w-70px">کد شرکت</th>
-                                                            <th class="min-w-150px">نام شرکت</th>
-															<th class="min-w-150px">نام انگلیسی شرکت</th>
+															<th class="min-w-70px">کد معاونت</th>
+                                                            <th class="min-w-150px">نام معاونت</th>
+															<th class="min-w-150px">نام انگلیسی معاونت</th>
 															<th class="min-w-120px">وضعیت</th>
+															<th class="min-w-120px">نوع</th>
+															<th class="min-w-120px">ترتیب</th>
 															<th class="min-w-100px text-center">عملیات</th>
 														</tr>
 													</thead>
