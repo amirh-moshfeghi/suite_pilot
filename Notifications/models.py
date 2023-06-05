@@ -36,7 +36,7 @@ class Notification(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    notifications_date = models.DateTimeField(auto_now_add=True)
+    notifications_date = models.DateTimeField(auto_now_add=True,verbose_name="زمان پیام")
 
     def jpublish(self):
         return jalali_converter(self.notifications_date)
