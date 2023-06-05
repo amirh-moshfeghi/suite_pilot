@@ -10,12 +10,22 @@ from Notifications.models import Notification
 from django.urls import reverse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from Accounts.models import AuditEntry
+from django.contrib.gis.geoip2 import GeoIP2
+
+
 
 
 
 @login_required()
 def home(request):
-    return render(request, "dashboard/index_final.html")
+    current_user_username=request.user.username
+    current_user_logs = AuditEntry.objects.filter(username=current_user_username)
+
+    # g = GeoIP2()
+
+    print(current_user_logs[0].ip)
+    return render(request, "dashboard/index_final.html",{'current_user_logs':current_user_logs})
 
 @login_required()
 def notifs_box(request):

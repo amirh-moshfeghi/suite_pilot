@@ -16,7 +16,6 @@ from django.shortcuts import (
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
-        print("yes")
         username = request.POST['username']
         try:
             username = request.POST['username']
