@@ -35,12 +35,12 @@ class DepartmentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام معاونت را به فارسی وارد نمایید"})
-        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفانام معاونت را به انگلیسی وارد نمایید"})
+        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام معاونت را به انگلیسی وارد نمایید"})
         self.fields["code"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد معاونت را وارد نمایید"})
-        self.fields["department_status"].widget.attrs.update({"class": "form-control form-control-solid" ,"placeholder":"لطفا وضعیت معاونت را وارد نمایید"})
-        self.fields["department_type"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نوع معاونت را انتخاب نمایید"})
-        self.fields["order"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا ترتیب معاونت را وارد نمایید"})
-        self.fields["company"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد شرکت را انتخاب نمایید"})
+        self.fields["department_status"].widget.attrs.update({"class": "form-control form-control-solid" })
+        self.fields["department_type"].widget.attrs.update({"class": "form-control form-control-solid"})
+        self.fields["order"].widget.attrs.update({"class": "form-control form-control-solid"})
+        self.fields["company"].widget.attrs.update({"class": "form-control form-control-solid"})
 
     class Meta:
         model = Department

@@ -150,7 +150,7 @@
                                                             <th class="min-w-150px">نام شرکت</th>
 															<th class="min-w-150px">نام انگلیسی شرکت</th>
 															<th class="min-w-120px">وضعیت</th>
-															<th class="min-w-100px text-center">عملیات</th>
+															<th class="min-w-140px text-center">عملیات</th>
 														</tr>
 													</thead>
 													<!--end::Table head-->
@@ -174,10 +174,7 @@
 																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ company.english_title }}</a>
 
 															</td>
-															<td>
-																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">Agoda</a>
-																<span class="text-muted fw-semibold text-muted d-block fs-7">Houses & Hotels</span>
-															</td>
+
 
 															<td>
 																<span class="badge {% if company.company_status == 'فعال' %}badge-primary{% else %}badge-danger{% endif %}">{{ company.company_status}}</span>

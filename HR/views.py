@@ -1,5 +1,6 @@
 import csv
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template import loader
@@ -114,12 +115,13 @@ def Update_Company(request, id):
     }
     return HttpResponse(template.render(context, request))
 
+
 def Department_Base_Information(request):
     if request.method == "POST":
-        deoartment_form = DepartmentForm(request.POST, request.FILES)
-        if deoartment_form.is_valid():
-            deoartment_form.save()
-            messages.success(request,'ثبت شرکت با موفقیت انجام شد')
+        department_form = DepartmentForm(request.POST, request.FILES)
+        if department_form.is_valid():
+            department_form.save()
+            messages.success(request,'ثبت معاونت با موفقیت انجام شد')
         else:
             messages.error(request, 'مشکلی در ورودی اطلاعات.لطفا مجدد تلاش کنید')
 

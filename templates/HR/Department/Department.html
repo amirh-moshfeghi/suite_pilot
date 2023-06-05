@@ -61,6 +61,7 @@
 
         <!--begin::Content-->
         <span>{{ message}}</span>
+        <span>{{ department_form.errors}}</span>
         <!--end::Content-->
     </div>
     <!--end::Wrapper-->
@@ -149,16 +150,17 @@
 															<th class="min-w-70px">کد معاونت</th>
                                                             <th class="min-w-150px">نام معاونت</th>
 															<th class="min-w-150px">نام انگلیسی معاونت</th>
-															<th class="min-w-120px">وضعیت</th>
-															<th class="min-w-120px">نوع</th>
+															<th class="min-w-150px">نام شرکت</th>
 															<th class="min-w-120px">ترتیب</th>
+															<th class="min-w-120px">نوع</th>
+															<th class="min-w-120px">وضعیت</th>
 															<th class="min-w-100px text-center">عملیات</th>
 														</tr>
 													</thead>
 													<!--end::Table head-->
 													<!--begin::Table body-->
 													<tbody>
-                                                    {% for company in companies %}
+                                                    {% for department in departments %}
 														<tr>
 															<td>
 																<div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -166,30 +168,38 @@
 																</div>
 															</td>
 															<td>
-																<a href="#" class="text-dark fw-bold text-hover-primary fs-6">{{ company.code }}</a>
+																<a href="#" class="text-dark fw-bold text-hover-primary fs-6">{{ department.code }}</a>
 															</td>
 															<td>
-																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ company.title }}</a>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ department.title }}</a>
 
 															</td>
 															<td>
-																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ company.english_title }}</a>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ department.english_title }}</a>
+
+															</td>
+                                                        <td>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ department.company }}</a>
 
 															</td>
 															<td>
-																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">Agoda</a>
-																<span class="text-muted fw-semibold text-muted d-block fs-7">Houses & Hotels</span>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ department.order }}</a>
+
+															</td>
+															<td>
+																<a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ department.department_type }}</a>
+
 															</td>
 
 															<td>
-																<span class="badge {% if company.company_status == 'فعال' %}badge-primary{% else %}badge-danger{% endif %}">{{ company.company_status}}</span>
+																<span class="badge {% if department.department == 'فعال' %}badge-primary{% else %}badge-danger{% endif %}">{{ department.department_status}}</span>
 															</td>
 															<td class="text-end">
-																<a href="Base_Information/Update_Company/{{ company.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"  data-bs-toggle="tooltip" data-bs-trigger="hover"
+																<a href="Base_Information/Update_department/{{ department.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"  data-bs-toggle="tooltip" data-bs-trigger="hover"
                         data-bs-placement="bottom" data-bs-dismiss="click" title="ویرایش ">
 																	<i class="ki-outline ki-pencil fs-2"></i>
 																</a>
-																<a href="delete_manager/{{ company.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"   data-bs-toggle="tooltip" data-bs-trigger="hover"
+																<a href="delete_manager/{{ department.id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"   data-bs-toggle="tooltip" data-bs-trigger="hover"
                         data-bs-placement="bottom" data-bs-dismiss="click" title="حذف ">
 																	<i class="ki-outline ki-trash fs-2"></i>
 																</a>
@@ -304,11 +314,11 @@
 								<!--begin::Input group-->
 								<div class="mb-5 fv-row">
 									<!--begin::Label-->
-									<label class="required fs-5 fw-semibold mb-2">نام شرکت</label>
+									<label class="required fs-5 fw-semibold mb-2">نام معاونت</label>
 									<!--end::Label-->
 									<!--begin::Input-->
 {#									<input type="text" class="form-control form-control-solid" placeholder="نام مدیر را به فارسی وارد کنید" name="persian_name" />#}
-                                    {{ company_form.title }}
+                                    {{ department_form.title }}
 									<!--end::Input-->
 								</div>
 
@@ -316,31 +326,61 @@
 								<!--begin::Input group-->
 									<div class="mb-5 fv-row">
 									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">کد معاونت</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{department_form.code}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">ترتیب معاونت</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{department_form.order}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">نام انگلیسی معاونت</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{department_form.english_title}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">وضعیت معاونت</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{department_form.department_status}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-5 fw-semibold mb-2">نوع معاونت</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+                                        {{department_form.department_type}}
+
+									<!--end::Input-->
+								</div>
+									<div class="mb-5 fv-row">
+									<!--begin::Label-->
 									<label class="required fs-5 fw-semibold mb-2">کد شرکت</label>
 									<!--end::Label-->
 									<!--begin::Input-->
 {#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
-                                        {{company_form.code}}
-
-									<!--end::Input-->
-								</div>
-									<div class="mb-5 fv-row">
-									<!--begin::Label-->
-									<label class="required fs-5 fw-semibold mb-2">نام انگلیسی شرکت</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
-                                        {{company_form.english_title}}
-
-									<!--end::Input-->
-								</div>
-									<div class="mb-5 fv-row">
-									<!--begin::Label-->
-									<label class="required fs-5 fw-semibold mb-2">وضعیت شرکت</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
-                                        {{company_form.company_status}}
+                                        {{department_form.company}}
 
 									<!--end::Input-->
 								</div>
