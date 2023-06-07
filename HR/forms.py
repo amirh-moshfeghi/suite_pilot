@@ -32,10 +32,10 @@ class CompanyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام شرکت را به فارسی وارد نمایید"})
-        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفانام شرکت را به انگلیسی وارد نمایید"})
+        self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا نام شرکت را به انگلیسی وارد نمایید"})
         self.fields["code"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد شرکت را وارد نمایید"})
         self.fields["company_status"].widget.attrs.update({"class": "form-control form-control-solid"})
-        self.fields["content"].widget.attrs.update({"class": "tox-target","id":"kt_docs_tinymce_basic", "name":"kt_docs_tinymce_basic"})
+        self.fields["content"].widget.attrs.update({"class": "tox-target","id":"kt_docs_tinymce_basic", "name":"kt_docs_tinymce_basic","placeholder":"لطفا در صورت نیاز به ذخیره سازی داده های اضافی، اطلاعات یا فایل مورد نظر خود را در این قسمت وارد نمایید"})
 
     class Meta:
         model = Company

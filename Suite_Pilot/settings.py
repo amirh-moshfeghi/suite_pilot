@@ -272,3 +272,5 @@ TINYMCE_DEFAULT_CONFIG = {
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
 TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
 TINYMCE_COMPRESSOR = False
+
+LOGOUT_REDIRECT_URL = 'Account:login'

@@ -59,9 +59,14 @@ def user_logged_in_callback(sender, request, user, **kwargs):
 
 @receiver(user_logged_out)
 def user_logged_out_callback(sender, request, user, **kwargs):
-    ip = request.META.get('REMOTE_ADDR')
-    now = timezone.now()
-    AuditEntry.objects.create(action='user_logged_out', ip=ip, username=user.username, time=now)
+    if user:
+        ip = request.META.get('REMOTE_ADDR')
+        now = timezone.now()
+        AuditEntry.objects.create(action='user_logged_out', ip=ip, username=user.username, time=now)
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+        now = timezone.now()
+        AuditEntry.objects.create(action='user_logged_out', ip=ip, username=request.user.username, time=now)
 
 
 @receiver(user_login_failed)

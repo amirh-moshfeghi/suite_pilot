@@ -13,6 +13,7 @@ urlpatterns = [
     path('OU/Base_Information/Update_OU/<int:id>', views.Update_OU, name='Update_OU'),
     path('Base_information_Manager/update_manager/<int:id>', views.update_manager, name='update_manager'),
     path('Base_information_Manager/delete_manager/<int:id>', views.delete_manager, name='delete_manager'),
+    path('Company/Base_Information/Delete_Company/<int:id>', views.Delete_Company, name='Delete_Company'),
     path('Base_information_Manager/update_manager/update_manager_record/<int:id>', views.update_manager_record, name='update_manager_record'),
     path('Company/Base_Information/Update_Company/Update_Company_Record/<int:id>', views.Update_Company_Base_Information, name='Update_Company_Base_Information'),
     path('Department/Base_Information/Update_Company/Update_Department_Record/<int:id>', views.Update_Department_Base_Information, name='Update_Department_Base_Information'),

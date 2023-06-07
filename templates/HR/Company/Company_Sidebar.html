@@ -265,147 +265,19 @@
                             <!--end::Avatar-->
                             <!--begin::کاربرname-->
                             <div class="d-flex flex-column">
-                                <div class="fw-bold d-flex align-items-center fs-5">جلالی
-                                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">حرفه ای</span>
+                                {% if user.is_authenticated %}
+                                <div class="fw-bold d-flex align-items-center fs-5">{{ request.user.username }}
+                                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{ request.user.is_special_user }}</span>
                                 </div>
-                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ request.user}}</a>
+                                {% endif %}
                             </div>
                             <!--end::کاربرname-->
                         </div>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu separator-->
-                    <div class="separator my-2"></div>
-                    <!--end::Menu separator-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo7/dist/account/overview.html" class="menu-link px-5">پروفایل من</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo7/dist/apps/projects/list.html" class="menu-link px-5">
-                            <span class="menu-text">پروژه ها من</span>
-                            <span class="menu-badge">
-												<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-											</span>
-                        </a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                         data-kt-menu-placement="right-end" data-kt-menu-offset="-15px, 0">
-                        <a href="#" class="menu-link px-5">
-                            <span class="menu-title">من اشتراک</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/referrals.html" class="menu-link px-5">مراجعات</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/billing.html" class="menu-link px-5">صورتحساب</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/statements.html" class="menu-link px-5">پرداخت ها</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/statements.html"
-                                   class="menu-link d-flex flex-stack px-5">بیانه ها
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                       title="نمایش your statements"></i></a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu separator-->
-                            <div class="separator my-2"></div>
-                            <!--end::Menu separator-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <div class="menu-content px-3">
-                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1"
-                                               checked="checked" name="notifications"/>
-                                        <span class="form-check-label text-muted fs-7">اعلان ها</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo7/dist/account/statements.html" class="menu-link px-5">من بیانه ها</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu separator-->
-                    <div class="separator my-2"></div>
-                    <!--end::Menu separator-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                         data-kt-menu-placement="right-end" data-kt-menu-offset="-15px, 0">
-                        <a href="#" class="menu-link px-5">
-											<span class="menu-title position-relative">زبان
-											<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">انگلیسی
-											<img class="w-15px h-15px rounded-1 ms-2"
-                                                 src="assets3/media/flags/united-states.svg" alt=""/></span></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/settings.html" class="menu-link d-flex px-5 active">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets3/media/flags/united-states.svg"
-                                                         alt=""/>
-												</span>انگلیسی</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets3/media/flags/spain.svg" alt=""/>
-												</span>اسپانیایی</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets3/media/flags/germany.svg"
-                                                         alt=""/>
-												</span>آلمانی</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets3/media/flags/japan.svg" alt=""/>
-												</span>ژاپنی</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets3/media/flags/france.svg" alt=""/>
-												</span>فرانسه</a>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
+
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5 my-1">
@@ -414,7 +286,7 @@
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="../../demo7/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">خروج</a>
+                        <a href="{% url 'Account:logout' %}" class="menu-link px-5">خروج</a>
                     </div>
                     <!--end::Menu item-->
                 </div>

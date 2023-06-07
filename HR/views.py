@@ -45,6 +45,12 @@ def delete_manager(request, id):
     return HttpResponseRedirect(reverse('Base_information_Manager'))
 
 
+def Delete_Company(request, id):
+    company = Company.objects.get(id=id)
+    company.delete()
+    return HttpResponseRedirect(reverse('Company_Base_Information'))
+
+
 def update_manager(request, id):
     manager = Manager.objects.get(id=id)
     template = loader.get_template('HR/Base_Information_Manager_Update.html')
