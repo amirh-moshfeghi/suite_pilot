@@ -1,4 +1,6 @@
 from django import forms
+from tinymce.widgets import TinyMCE
+
 from .models import *
 
 
@@ -16,7 +18,16 @@ class ManagerForm(forms.ModelForm):
         fields = '__all__'
 
 
+class TinyMCEWidget(TinyMCE):
+    def use_required_attribute(self, *args):
+        return False
+
 class CompanyForm(forms.ModelForm):
+    content = forms.CharField(
+        widget=TinyMCEWidget(
+            attrs={'required': False, 'cols': 30, 'rows': 10}
+        )
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,6 +35,7 @@ class CompanyForm(forms.ModelForm):
         self.fields["english_title"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفانام شرکت را به انگلیسی وارد نمایید"})
         self.fields["code"].widget.attrs.update({"class": "form-control form-control-solid","placeholder":"لطفا کد شرکت را وارد نمایید"})
         self.fields["company_status"].widget.attrs.update({"class": "form-control form-control-solid"})
+        self.fields["content"].widget.attrs.update({"class": "tox-target","id":"kt_docs_tinymce_basic", "name":"kt_docs_tinymce_basic"})
 
     class Meta:
         model = Company

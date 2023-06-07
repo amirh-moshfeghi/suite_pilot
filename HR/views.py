@@ -86,7 +86,7 @@ def Company_Base_Information(request):
         return redirect("Company_Base_Information")
     company_form = CompanyForm()
     companies = Company.objects.all()
-    return render(request=request, template_name="HR/Company/Company.html", context={'company_form': company_form, 'companies': companies})
+    return render(request=request, template_name="HR/Company/Company_New_Style.html", context={'company_form': company_form, 'companies': companies})
 
 
 def Update_Company_Base_Information(request, id):

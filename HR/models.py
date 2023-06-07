@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.forms import ModelForm
+from tinymce.models import HTMLField
 
 class Headquarter(models.Model):
     """
@@ -147,6 +148,8 @@ class Company(models.Model):
         blank=True,
         verbose_name="وضعیت شرکت",
     )
+
+    content = HTMLField(blank=True, null=True)
 
     # Metadata
     class Meta:
