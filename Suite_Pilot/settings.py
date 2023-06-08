@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'Forms.apps.FormsConfig',
     'tinymce',
+    'Boards.apps.BoardsConfig',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
@@ -141,6 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),
+    BASE_DIR / "node_modules",
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

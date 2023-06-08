@@ -1,0 +1,118 @@
+{% load static %}<!DOCTYPE html>
+<html lang="de" class="h-full">
+  <head>
+
+<html direction="rtl" dir="rtl" style="direction: rtl" >
+	<!--begin::Head-->
+	<head><base href=""/>
+		<title>نیر پارس</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="The most advanced پنل ادمین بوت استراپ Theme on Themeforest trusted by 100,000 beginners و professionals. Multi-demo, حالت تیره, RTL support و complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Flask & Laravel versions. Grab your copy now و get life-time updates for free." />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="مترونیک " />
+		<link rel="shortcut icon" href="assets3/media/logos/favicon.ico" />
+		<!--begin::Fonts(mوatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Vendor Stylesheets(used for this page only)-->
+		<link href="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
+		<link href="{% static 'assets3/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets2/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/css/style.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% comment %} <link rel="shortcut icon" href="{% static "images/favicon.ico" %}"> {% endcomment %}
+
+    {% block css %}
+      <link rel="stylesheet" type="text/css" href="{% static '@fontsource/inter/variable.css' %}">
+      <link href="{% static 'styles/styles.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block extrahead %}{% endblock %}
+  </head>
+
+  <body class="antialiased bg-gray-100 header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'   id="kt_body" style="background-image: url()" >
+        		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getآیتم("data-theme") !== null ) { themeMode = localStorage.getآیتم("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+
+                		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+
+                {% include 'Boards/Boards_Sidebar.html' %}
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+                 {% include 'Boards/Boards_Header.html' %}
+            	<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Container-->
+						<div class="container-xxl" id="kt_content_container">
+							<!--begin::Row-->
+							<div class="row gy-5 g-xl-8">
+								<!--begin::Col-->
+								<div class="card mb-5 mb-xl-8">
+    {% comment %} {% block navbar %}{% include "navbar.html" %}{% endblock navbar %}
+
+    {% include "messages.html" %} {% endcomment %}
+
+    {% block outerContent %}
+      <div class="mx-auto max-w-7xl mt-8 md:mt-16 mb-64">
+        <div class="mx-4 md:mx-8">
+          {% block content %}{% endblock content %}
+        </div>
+      </div>
+    {% endblock outerContent %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </div>
+                        </div>
+
+    {% comment %} {% block footer %}
+      {% include "footer.html" %}
+    {% endblock footer %} {% endcomment %}
+
+    {% block javascript %}
+      <script type="text/javascript" src="{% static 'scripts/scripts.js' %}"></script>
+      <script type="text/javascript" src="{% static '@alpinejs/focus/dist/cdn.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'alpinejs/dist/cdn.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'htmx.org/dist/htmx.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'sortablejs/Sortable.min.js' %}"></script>
+        		<script>var hostUrl = "assets3/";</script>
+		<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+		<script src="{% static 'assets3/plugins/global/plugins.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/scripts.bundle.js' %}"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="{% static 'assets3/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::سفارشی Javascript(used for this page only)-->
+		<script src="{% static 'assets3/js/widgets.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/widgets.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/apps/chat/chat.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/create-app.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/users-search.js' %}"></script>
+    {% endblock javascript %}
+  </body>
+
+</html>
