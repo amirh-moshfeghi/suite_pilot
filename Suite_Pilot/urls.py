@@ -28,6 +28,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('Boards/', include('Boards.urls')),
+    path('Sticky', include('Stickynotes.urls')),
 
 ]
 

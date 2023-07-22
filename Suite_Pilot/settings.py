@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     'Forms.apps.FormsConfig',
     'tinymce',
     'Boards.apps.BoardsConfig',
-    'widget_tweaks'
+    'widget_tweaks',
+    'django_tables2',
+    'Stickynotes.apps.StickynotesConfig',
+    'formtools'
 ]
 
 MIDDLEWARE = [
@@ -277,3 +280,5 @@ TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
 TINYMCE_COMPRESSOR = False
 
 LOGOUT_REDIRECT_URL = 'Account:login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
