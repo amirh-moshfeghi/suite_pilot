@@ -29,6 +29,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('Boards/', include('Boards.urls')),
     path('Sticky', include('Stickynotes.urls')),
+    path('', include('Tasks.urls')),
 
 ]
 

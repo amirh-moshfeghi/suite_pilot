@@ -1,0 +1,617 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+
+<html direction="rtl" dir="rtl" style="direction: rtl" >
+	<!--begin::Head-->
+	<head><base href=""/>
+		<title>نیر پارس</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="The most advanced پنل ادمین بوت استراپ Theme on Themeforest trusted by 100,000 beginners و professionals. Multi-demo, حالت تیره, RTL support و complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Flask & Laravel versions. Grab your copy now و get life-time updates for free." />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="مترونیک " />
+		<link rel="shortcut icon" href="assets3/media/logos/favicon.ico" />
+		<!--begin::Fonts(mوatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Vendor Stylesheets(used for this page only)-->
+		<link href="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
+		<link href="{% static 'assets3/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets2/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/css/style.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+{#        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>#}
+{#        <script src="{% static 'tinymce/prism.js' %}"></script>#}
+{#        <script src="{% static 'tinymce/tinymce.min.js' %}"></script>#}
+        <script src="{% static 'assets3/plugins/custom/tinymce/tinymce.bundle.js' %}"></script>
+
+
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
+
+		<!--end::Global Stylesheets Bundle-->
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" style="background-image: url()" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getآیتم("data-theme") !== null ) { themeMode = localStorage.getآیتم("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::کناری-->
+                    {% include 'HR/Company/Company_Sidebar.html' %}
+				<!--end::کناری-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+
+                        {% include 'HR/Company/Company_Header.html' %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                    <div class="alert alert-dismissible bg-light-primary border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
+    <!--begin::Icon-->
+    <i class="ki-duotone ki-search-list fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+    <!--end::Icon-->
+
+    <!--begin::Wrapper-->
+    <div class="d-flex flex-column pe-0 pe-sm-10">
+        <!--begin::Title-->
+        <h5 class="mb-1">تبریک</h5>
+        <!--end::Title-->
+
+        <!--begin::Content-->
+        <span>{{ message}}</span>
+        <!--end::Content-->
+    </div>
+    <!--end::Wrapper-->
+
+    <!--begin::Close-->
+    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+        <i class="ki-duotone ki-cross fs-1 text-success"><span class="path1"></span><span class="path2"></span></i>
+    </button>
+    <!--end::Close-->
+</div>
+                        {% endfor %}
+                    {% endif %}
+<!--end::Alert-->
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Container-->
+						<div class="container-xxl" id="kt_content_container">
+							<!--begin::Row-->
+							<div class="row gy-5 g-xl-8">
+								<!--begin::Col-->
+
+
+
+
+<div class="content d-flex flex-column flex-column-fluid mt-10" id="kt_content">
+						<!--begin::Container-->
+						<div class="container text-center">
+        <div class="row text-center">
+            <div class="col">
+                <div style="padding-top: 10px;">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTask" style="border-radius: 40px;">
+                      + اضافه کردن یادداشت جدید
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+						<!--end::Container-->
+					</div>
+
+
+
+    <!-- Add note Modal -->
+    <div class="modal fade" id="addTask" tabindex="-1" role="dialog" aria-labelledby="addTaskTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row">
+                {% if form %}
+                {% for field in username_form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            {{ error|escape }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in username_form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ error|escape }}
+                    </div>
+                {% endfor %}
+                <div class="col text-center" style="padding: 30px;">
+                    <form method="POST" action="{% url 'tasks' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col text-center" style="display:inherit">
+                                {{ form.title}}
+                                {{ form.priority  }}
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col text-center">
+                                {{ form.description  }}
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-5">
+                                <div class="btn-group float-right" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">لغو</button>
+                                    <button type="submit" class="btn btn-primary">ثبت</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-6 col-md-6">
+            {% for task in tasks %}
+                <div class="card btn-block" style="margin-top: 10px; border-radius: 0px; padding: 10px; background-color: #fafafa">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="" data-toggle="collapse" data-target="#{{ task.pk }}" style="text-decoration: none;{% if task.complete %}text-decoration:line-through{% endif %}" class="{{ task.priority }}">{{ task.title }}</a>
+
+                            {% if task.description %}
+                                <div class="collapse" id="{{ task.pk }}">
+                                  <div class="" style="border-radius: 0;">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{ task.description }}
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-3">
+                            <div class="btn-group float-right" role="group">
+                                <a href="{% url 'completed_task' task.pk %}" class="float-right" data-toggle="tooltip" title="{% if task.complete %} Mark as Incomplete {% else %} نشانه گذاری به عنوان انجام شده {% endif %}">&#10004;</a>
+                                <a href="{% url 'delete_task' task.pk %}" class="float-right" style="padding-left: 10px;" data-toggle="tooltip" title="پاک کردن">&#10007;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-2 col-md-2"></div>
+    </div>
+
+   <style>
+       .adanger{
+    color: #dc3545; /* red */
+}
+
+.bwarning{
+    color: #ffc107; /* orange */
+}
+
+.csuccess{
+    color: #28a745; /* green */
+}
+
+.dprimary{
+    color: #007bff; /* blue */
+}
+
+.adanger:hover{
+    color: #dc3545; /* red */
+}
+
+.bwarning:hover{
+    color: #ffc107; /* orange */
+}
+
+.csuccess:hover{
+    color: #28a745; /* green */
+}
+
+.dprimary:hover{
+    color: #007bff; /* blue */
+}
+   </style>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+								<!--end::Col-->
+								<!--begin::Col-->
+
+							<!--end::Row-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
+							<!--begin::Copyright-->
+
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::کشوs-->
+		<!--begin::فعالیت ها drawer-->
+
+		<!--end::کشوs-->
+		<!--end::Main-->
+		<!--begin::Engage drawers-->
+		<!--begin::دموها drawer-->
+		<!--end::دموها drawer-->
+		<!--begin::کمک drawer-->
+
+		<!--end::کمک drawer-->
+		<!--end::Engage drawers-->
+		<!--begin::Engage modals-->
+		<!--end::Engage modals-->
+		<!--begin::Engage toolbar-->
+		<!--end::Engage toolbar-->
+		<!--begin::Scrolltop-->
+		<!--end::Scrolltop-->
+		<!--begin::Modals-->
+		<!--begin::Modal - ارتقا دهید plan-->
+		<!--end::Modal - ارتقا دهید plan-->
+		<!--begin::Modal - دعوت دوستs-->
+		<!--end::Modal - دعوت دوست-->
+		<!--begin::Modal - ساختن اپ-->
+		<!--end::Modal - ساختن اپ-->
+		<!--begin::Modal - Users جستجو-->
+		<!--end::Modal - Users جستجو-->
+
+
+
+
+
+
+            <div class="modal fade" id="kt_modal_create_api_key" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-xl-1000px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header" id="kt_modal_create_api_key_header">
+						<!--begin::Modal title-->
+						<h2>ایجاد جدول جدید</h2>
+						<!--end::Modal title-->
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-outline ki-cross fs-1"></i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+					<!--begin::Form-->
+					<form id="kt_modal_create_api_key_form"  enctype="multipart/form-data"  method="POST" action="{% url 'Company_Base_Information'%} ">
+                        {% csrf_token %}
+						<!--begin::Modal body-->
+						<div class="modal-body py-10 px-lg-17">
+							<!--begin::Scroll-->
+							<div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_create_api_key_header" data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll" data-kt-scroll-offset="300px">
+								<!--begin::Notice-->
+								<!--end::Notice-->
+								<!--begin::Input group-->
+
+
+                              <div class="row">
+                                   <div class="col-md-4">
+                                    <div class="g-9 ">
+								<!--begin::Col-->
+								<div class="col-md-12  fv-plugins-icon-container mb-5">
+                                     <label class="required fs-6 fw-semibold mb-2">نام شرکت</label>
+									{{ company_form.title }}
+								<div class="fv-plugins-message-container invalid-feedback"></div></div>
+								<!--end::Col-->
+								<!--begin::Col-->
+								<div class="col-md-12 mb-5">
+									<label class="required fs-6 fw-semibold mb-2">نام انگلیسی شرکت</label>
+									<!--begin::Input-->
+									<div class="position-relative d-flex align-items-center">
+										<!--begin::Icon-->
+									{{ company_form.english_title }}
+										<!--end::Icon-->
+										<!--begin::Datepicker-->
+										<!--end::Datepicker-->
+									</div>
+									<!--end::Input-->
+								</div>
+								<!--end::Col-->
+							</div>
+                                <div class="g-9">
+								<!--begin::Col-->
+								<div class="col-md-12 fv-plugins-icon-container mb-5">
+                                     <label class="required fs-6 fw-semibold mb-2">کد شرکت</label>
+									{{ company_form.code }}
+								<div class="fv-plugins-message-container invalid-feedback"></div></div>
+								<!--end::Col-->
+								<!--begin::Col-->
+								<div class="col-md-12  fv-plugins-icon-container mb-5">
+									<label class="required fs-6 fw-semibold mb-2">وضعیت شرکت</label>
+                                    {{ company_form.company_status }}
+									<!--begin::Input-->
+
+									<!--end::Input-->
+								</div>
+
+
+
+
+
+<script type="text/javascript">
+    var options = {selector: "#kt_docs_tinymce_basic", height: "350", branding: false, directionality: "rtl", language: "fa", plugins: "insertdatetime media image preview",
+        toolbar: "undo redo |  bold italic | alignleft alignright aligncenter alignjustify | image media | preview",
+      image_title: true,
+      image_caption: true,
+      automatic_uploads: true,
+      image_advtab: true,
+      file_picker_types: "image media",
+         file_picker_callback: function (cb, value, meta) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "file");
+        if (meta.filetype == "image") {
+            input.setAttribute("accept", "image/*");}
+        if (meta.filetype == "media") {
+        input.setAttribute("accept", "video/*");}
+
+        input.onchange = function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+                var id = "blobid" + (new Date()).getTime();
+                var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                var base64 = reader.result.split(",")[1];
+                var blobInfo = blobCache.create(id, file, base64);
+                blobCache.add(blobInfo);
+               cb(blobInfo.blobUri(), { title: file.name });
+             };
+             reader.readAsDataURL(file);
+         };
+         input.click();
+      }};
+
+
+
+tinymce.init(options);
+{#tinymce.init(options2);#}
+
+
+</script>
+
+
+{#								<div class="mb-5 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">نام شرکت</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Input-->#}
+{#									<input type="text" class="form-control form-control-solid" placeholder="نام مدیر را به فارسی وارد کنید" name="persian_name" />#}
+{#                                    {{ company_form.title }}#}
+{#                                    #}
+{#                                    #}
+{#                                    #}
+{#                                    #}
+{#                                    #}
+{#                                    #}
+{#									<!--end::Input-->#}
+{#								</div>#}
+{##}
+{#								<!--end::Input group-->#}
+{#								<!--begin::Input group-->#}
+{#									<div class="mb-5 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">کد شرکت</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Input-->#}
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+{#                                        {{company_form.code}}#}
+{##}
+{#									<!--end::Input-->#}
+{#								</div>#}
+{#									<div class="mb-5 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">نام انگلیسی شرکت</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Input-->#}
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+{#                                        {{company_form.english_title}}#}
+{##}
+{#									<!--end::Input-->#}
+{#								</div>#}
+{#									<div class="mb-5 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">وضعیت شرکت</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Input-->#}
+{#									<input type="text" class="form-control form-control-solid" placeholder="کد مدیر" name="code" />#}
+{#                                        {{company_form.company_status}}#}
+{##}
+{#									<!--end::Input-->#}
+{#								</div>#}
+
+								<!--end::Input group-->
+								<!--begin::Input group-->
+{#								<div class="d-flex flex-column mb-10 fv-row">#}
+{#									<!--begin::Label-->#}
+{#									<label class="required fs-5 fw-semibold mb-2">Category</label>#}
+{#									<!--end::Label-->#}
+{#									<!--begin::Select-->#}
+{#									<select name="category" data-control="select2" data-hide-search="true" data-placeholder="Select a Category..." class="form-select form-select-solid">#}
+{#										<option value="">Select a Category...</option>#}
+{#										<option value="1">CRM</option>#}
+{#										<option value="2">Project Alice</option>#}
+{#										<option value="3">Keenthemes</option>#}
+{#										<option value="4">General</option>#}
+{#									</select>#}
+{#									<!--end::Select-->#}
+{#								</div>#}
+{#								<!--end::Input group-->#}
+{#								<!--begin::Input group-->#}
+{#								<div class="mb-10">#}
+{#									<!--begin::Heading-->#}
+{#									<div class="mb-3">#}
+{#										<!--begin::Label-->#}
+{#										<label class="d-flex align-items-center fs-5 fw-semibold">#}
+{#											<span class="required">Specify Your API Method</span>#}
+{#											<span class="ms-1" data-bs-toggle="tooltip" title="Your billing numbers will be calculated based on your API method">#}
+{#												<i class="ki-outline ki-information-5 text-gray-500 fs-6"></i>#}
+{#											</span>#}
+{#										</label>#}
+{#										<!--end::Label-->#}
+{#										<!--begin::Description-->#}
+{#										<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>#}
+{#										<!--end::Description-->#}
+{#									</div>#}
+{#									<!--end::Heading-->#}
+{#									<!--begin::Row-->#}
+{#									<div class="fv-row">#}
+{#										<!--begin::Radio group-->#}
+{#										<div class="btn-group w-100" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button]">#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="1" />#}
+{#											<!--end::Input-->#}
+{#											Open API</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted active" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" checked="checked" value="2" />#}
+{#											<!--end::Input-->#}
+{#											SQL Call</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="3" />#}
+{#											<!--end::Input-->#}
+{#											UI/UX</label>#}
+{#											<!--end::Radio-->#}
+{#											<!--begin::Radio-->#}
+{#											<label class="btn btn-outline btn-active-success btn-color-muted" data-kt-button="true">#}
+{#											<!--begin::Input-->#}
+{#											<input class="btn-check" type="radio" name="method" value="4" />#}
+{#											<!--end::Input-->#}
+{#											Docs</label>#}
+{#											<!--end::Radio-->#}
+{#										</div>#}
+{#										<!--end::Radio group-->#}
+{#									</div>#}
+{#									<!--end::Row-->#}
+{#								</div>#}
+								<!--end::Input group-->
+							</div>
+                               </div>
+                                <div class="col-md-8">
+                                      <div class="col-md-12">
+										<!--begin::Checkbox-->
+										<label class=" col-md-12">
+											{{ company_form.content }}
+										</label>
+										<!--end::Checkbox-->
+										<!--begin::Checkbox-->
+
+										<!--end::Checkbox-->
+									</div>
+                                </div>
+                              </div>
+							<!--end::Scroll-->
+						</div>
+						<!--end::Modal body-->
+						<!--begin::Modal footer-->
+						<div class="modal-footer flex-center">
+							<!--begin::Button-->
+							<button type="reset" id="kt_modal_create_api_key_cancel" class="btn btn-light me-3 " data-bs-dismiss="modal">لغو</button>
+							<!--end::Button-->
+							<!--begin::Button-->
+							<button type="submit" class="btn btn-primary" value="submit" name="submit">
+								<span class="indicator-label">ثبت</span>
+							</button>
+							<!--end::Button-->
+						</div>
+						<!--end::Modal footer-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modals-->
+		<!--begin::Javascript-->
+		<script>var hostUrl = "assets3/";</script>
+		<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+		<script src="{% static 'assets3/plugins/global/plugins.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/scripts.bundle.js' %}"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="{% static 'assets3/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::سفارشی Javascript(used for this page only)-->
+		<script src="{% static 'assets3/js/widgets.bundle.js' %}"></script>
+        <script src="{% static 'assets/js/custom/apps/support-center/tickets/create.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/widgets.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/apps/chat/chat.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/create-app.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/users-search.js' %}"></script>
+		<!--end::سفارشی Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>

@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_tables2',
     'Stickynotes.apps.StickynotesConfig',
-    'formtools'
+    'formtools',
+    'Tasks.apps.TasksConfig'
 ]
 
 MIDDLEWARE = [
