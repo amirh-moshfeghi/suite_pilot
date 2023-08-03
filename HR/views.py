@@ -8,6 +8,7 @@ from django.urls import reverse
 from Notifications.models import Notification
 from HR.forms import ManagerForm, CompanyForm, DepartmentForm, OUForm
 from HR.models import Manager, Company, Department, OU
+from dashboard.models import QuickLinks, SubMenu
 
 
 def Base_information_Manager(request):
@@ -22,7 +23,9 @@ def Base_information_Manager(request):
         return redirect("Base_information_Manager")
     manager_form = ManagerForm()
     managers = Manager.objects.all()
-    return render(request=request, template_name="HR/Base_Information.html", context={'manager_form': manager_form, 'managers': managers})
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
+    return render(request=request, template_name="HR/Base_Information.html", context={'manager_form': manager_form,'managers': managers,'quick_links':quick_links,'submenu':submenu})
 
 def export_managers_csv(request):
     response = HttpResponse(content_type='text/csv')
@@ -90,9 +93,11 @@ def Company_Base_Information(request):
             messages.error(request, 'مشکلی در ورودی اطلاعات.لطفا مجدد تلاش کنید')
 
         return redirect("Company_Base_Information")
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
     company_form = CompanyForm()
     companies = Company.objects.all()
-    return render(request=request, template_name="HR/Company/Company_New_Style.html", context={'company_form': company_form, 'companies': companies})
+    return render(request=request, template_name="HR/Company/Company_New_Style.html", context={'company_form': company_form, 'companies': companies,'quick_links':quick_links,'submenu':submenu})
 
 
 def Update_Company_Base_Information(request, id):
@@ -132,9 +137,12 @@ def Department_Base_Information(request):
             messages.error(request, 'مشکلی در ورودی اطلاعات.لطفا مجدد تلاش کنید')
 
         return redirect("Department_Base_Information")
+
     department_form = DepartmentForm()
     departments = Department.objects.all()
-    return render(request=request, template_name="HR/Department/Department.html", context={'department_form': department_form, 'departments': departments})
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
+    return render(request=request, template_name="HR/Department/Department.html", context={'department_form': department_form, 'departments': departments,'submenu':submenu,'quick_links':quick_links})
 
 
 def Update_Department(request, id):
@@ -179,7 +187,9 @@ def OU_Base_Information(request):
         return redirect("OU_Base_Information")
     ou_form = OUForm()
     ous = OU.objects.all()
-    return render(request=request, template_name="HR/OU/OU.html", context={'ou_form': ou_form, 'ous': ous})
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
+    return render(request=request, template_name="HR/OU/OU.html", context={'ou_form': ou_form, 'ous': ous,'quick_links':quick_links,'submenu':submenu})
 
 
 def Update_OU_Base_Information(request, id):

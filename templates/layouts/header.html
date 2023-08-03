@@ -11,7 +11,7 @@
 								<!--begin::Breadcrumb-->
 								<ul class="breadcrumb fw-semibold fs-base my-1">
 									<li class="breadcrumb-item text-muted">
-										<a href="{% url 'home' %}" class="text-muted">خانه</a>
+										<a href="{% url 'Dashboard:home' %}" class="text-muted">خانه</a>
 									</li>
 									<li class="breadcrumb-item text-muted">داشبورد اصلی</li>
 
@@ -160,7 +160,7 @@
     <div class="menu-item btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px " data-kt-menu-trigger="hover" data-kt-menu-placement="bottom-start">
         <!--begin::Menu link-->
         <a href="#" class="menu-link py-3">
-            <span class="menu-title">منو ها </span>
+            <span class="menu-title">اپ های فرعی </span>
 
                 <i class="ki-duotone ki-black-down fs-xl-3">
 </i>
@@ -171,36 +171,38 @@
         <!--begin::Menu sub-->
         <div class="menu-sub menu-sub-dropdown p-3 w-200px">
             <!--begin::Menu item-->
+            {% for sub in submenu %}
             <div class="menu-item">
-                <a href="#" class="menu-link px-1 py-3">
-                    <span class="menu-bullet me-0">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Example Link</span>
+                <a href="{{ sub.slug }}" class="menu-link px-1 py-3">
+                    <div class="symbol symbol-50px">
+    <img src="{{ sub.image.url }}" alt=""/>
+</div>
+                    <span class="menu-title">{{ sub.title }}</span>
                 </a>
             </div>
+            {% endfor %}
             <!--end::Menu item-->
 
             <!--begin::Menu item-->
-            <div class="menu-item">
-                <a href="#" class="menu-link px-1 py-3">
-                    <span class="menu-bullet me-0">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Example Link</span>
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item">
-                <a href="#" class="menu-link px-1 py-3">
-                    <span class="menu-bullet me-0">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Example Link</span>
-                </a>
-            </div>
+{#            <div class="menu-item">#}
+{#                <a href="#" class="menu-link px-1 py-3">#}
+{#                    <span class="menu-bullet me-0">#}
+{#                        <span class="bullet bullet-dot"></span>#}
+{#                    </span>#}
+{#                    <span class="menu-title">Example Link</span>#}
+{#                </a>#}
+{#            </div>#}
+{#            <!--end::Menu item-->#}
+{##}
+{#            <!--begin::Menu item-->#}
+{#            <div class="menu-item">#}
+{#                <a href="#" class="menu-link px-1 py-3">#}
+{#                    <span class="menu-bullet me-0">#}
+{#                        <span class="bullet bullet-dot"></span>#}
+{#                    </span>#}
+{#                    <span class="menu-title">Example Link</span>#}
+{#                </a>#}
+{#            </div>#}
             <!--end::Menu item-->
         </div>
         <!--end::Menu sub-->
@@ -240,37 +242,42 @@
 										<!--begin:Nav-->
 										<div class="row g-0">
 											<!--begin:Item-->
+                                            {% for item in quick_links %}
 											<div class="col-6">
-												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end border-bottom symbol symbol-40px me-4">
-													<span class="symbol-label fs-2 fw-semibold bg-info text-inverse-info">PR</span>
-													<span class="fs-7 text-gray-400 mt-3">پروفایل کاربری</span>
+												<a href="{{item.slug}}" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end border-bottom symbol symbol-40px me-4">
+{#													<span class="symbol-label fs-2 fw-semibold bg-info text-inverse-info">{{ item.image.url }}</span>#}
+                                                    <div class="symbol symbol-50px">
+    <img src="{{ item.image.url }}" alt=""/>
+</div>
+													<span class="fs-7 text-gray-400 mt-3">{{ item.title }}</span>
 												</a>
 											</div>
-											<!--end:Item-->
-											<!--begin:Item-->
-											<div class="col-6">
-												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-bottom symbol symbol-40px me-4">
-
-													<span class="symbol-label fs-2 fw-semibold bg-success text-inverse-success">WM</span>
-													<span class="fs-7 text-gray-400 mt-3">مدیریت محل کار</span>
-												</a>
-											</div>
-											<!--end:Item-->
-											<!--begin:Item-->
-											<div class="col-6">
-												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end symbol symbol-40px me-4">
-													<span class="symbol-label fs-2 fw-semibold bg-primary text-inverse-primary">HR</span>
-													<span class="fs-7 text-gray-400 mt-3">مدیریت منابع انسانی</span>
-												</a>
-											</div>
-											<!--end:Item-->
-											<!--begin:Item-->
-											<div class="col-6">
-												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light symbol symbol-40px me-4">
-													<span class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">RE</span>
-													<span class="fs-7 text-gray-400 mt-3">گزارشات</span>
-												</a>
-											</div>
+                                            {% endfor %}
+{#											<!--end:Item-->#}
+{#											<!--begin:Item-->#}
+{#											<div class="col-6">#}
+{#												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-bottom symbol symbol-40px me-4">#}
+{##}
+{#													<span class="symbol-label fs-2 fw-semibold bg-success text-inverse-success">WM</span>#}
+{#													<span class="fs-7 text-gray-400 mt-3">مدیریت محل کار</span>#}
+{#												</a>#}
+{#											</div>#}
+{#											<!--end:Item-->#}
+{#											<!--begin:Item-->#}
+{#											<div class="col-6">#}
+{#												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end symbol symbol-40px me-4">#}
+{#													<span class="symbol-label fs-2 fw-semibold bg-primary text-inverse-primary">HR</span>#}
+{#													<span class="fs-7 text-gray-400 mt-3">مدیریت منابع انسانی</span>#}
+{#												</a>#}
+{#											</div>#}
+{#											<!--end:Item-->#}
+{#											<!--begin:Item-->#}
+{#											<div class="col-6">#}
+{#												<a href="#" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light symbol symbol-40px me-4">#}
+{#													<span class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">RE</span>#}
+{#													<span class="fs-7 text-gray-400 mt-3">گزارشات</span>#}
+{#												</a>#}
+{#											</div>#}
 											<!--end:Item-->
 										</div>
 										<!--end:Nav-->

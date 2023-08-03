@@ -7,8 +7,8 @@
         <!--begin::Logo-->
         <div class="aside-logo d-none d-lg-flex flex-column align-items-center flex-column-auto py-10"
              id="kt_aside_logo">
-            <a href="{% url 'home' %}">
-                <img alt="Logo" src="{% static 'assets/media/logos/logo4.png' %}" class="h-35px"/>
+            <a href="{% url 'Dashboard:home' %}">
+                <img alt="Logo" src="{% static 'assets/media/logos/final_logo.png' %}" class="h-35px"/>
             </a>
         </div>
         <!--end::Logo-->
@@ -245,31 +245,29 @@
 
             <!--end::اعلان ها-->
             <!--begin::user-->
-            <div class="d-flex align-items-center mb-10" id="kt_header_user_menu_toggle">
+             <div class="d-flex align-items-center mb-10" id="kt_header_user_menu_toggle">
                 <!--begin::Menu wrapper-->
                 <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="click" data-kt-menu-overflow="true"
                      data-kt-menu-placement="bottom-end" data-bs-toggle="tooltip" data-bs-placement="right"
                      data-bs-dismiss="click" title="پروفایل">
-                    <img src="{% static 'assets3/media/avatars/300-1.jpg' %}" alt="image"/>
+                    <img src="{% static 'assets3/media/avatars/blank.png' %}" alt="image"/>
                 </div>
                 <!--begin::کاربر account menu-->
-                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-225px"
                      data-kt-menu="true">
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
                         <div class="menu-content d-flex align-items-center px-3">
                             <!--begin::Avatar-->
-                            <div class="symbol symbol-50px me-5">
-                                <img alt="Logo" src="assets3/media/avatars/300-1.jpg"/>
-                            </div>
+
                             <!--end::Avatar-->
                             <!--begin::کاربرname-->
                             <div class="d-flex flex-column">
                                 {% if user.is_authenticated %}
                                 <div class="fw-bold d-flex align-items-center fs-5">{{ request.user.username }}
-                                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{ request.user.is_special_user }}</span>
+                                    <span class="badge badge-light-success fw-bold fs-7 px-2 py-1 ms-2">{% if request.user.is_special_user  %} ادمین {% else %} کاربر عادی {% endif %} </span>
                                 </div>
-                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ request.user}}</a>
+                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-5">{{ request.user}}</a>
                                 {% endif %}
                             </div>
                             <!--end::کاربرname-->
@@ -280,11 +278,12 @@
 
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
-                    <div class="menu-item px-5 my-1">
-                        <a href="../../demo7/dist/account/settings.html" class="menu-link px-5">اکانت تنظیمات</a>
-                    </div>
+
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
+                 <div class="menu-item px-5">
+                        <a href="{% url 'Account:profile_logs' %}" class="menu-link px-5">لاگ های کاربر</a>
+                    </div>
                     <div class="menu-item px-5">
                         <a href="{% url 'Account:logout' %}" class="menu-link px-5">خروج</a>
                     </div>
@@ -4524,8 +4523,7 @@
                                         <!--end::Icon-->
                                         <!--begin::Title-->
                                         <div class="flex-grow-1 me-2">
-                                            <a href="#" class="fw-bold text-gray-800 text-hover-success fs-6">ایجاد
-                                                جدول</a>
+                                            <a href="#" class="fw-bold text-gray-800 text-hover-success fs-6">یادداشت ها</a>
 
                                         </div>
                                         <!--end::Title-->

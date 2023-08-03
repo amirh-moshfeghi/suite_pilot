@@ -1,0 +1,1229 @@
+{% load static %}
+<!DOCTYPE html>
+<html direction="rtl" dir="rtl" style="direction: rtl" >
+	<!--begin::Head-->
+	<head><base href=""/>
+		<title>نیر پارس</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="The most advanced پنل ادمین بوت استراپ Theme on Themeforest trusted by 100,000 beginners و professionals. Multi-demo, حالت تیره, RTL support و complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Flask & Laravel versions. Grab your copy now و get life-time updates for free." />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="نیر پارس " />
+		<link rel="shortcut icon" href="assets3/media/logos/favicon.ico" />
+		<!--begin::Fonts(mوatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Vendor Stylesheets(used for this page only)-->
+		<link href="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
+		<link href="{% static 'assets3/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets2/plugins/global/plugins.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets3/css/style.bundle.rtl.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" style="background-image: url()" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getآیتم("data-theme") !== null ) { themeMode = localStorage.getآیتم("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::کناری-->
+                    {% include 'layouts/sidebar.html' %}
+				<!--end::کناری-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+
+                        {% include 'layouts/header.html' %}
+					<!--end::Header-->
+					<!--begin::Content-->
+        	<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Container-->
+						<div class="container-xxl" id="kt_content_container">
+							<!--begin::Row-->
+							<div class="row gy-5 g-xl-8">
+								<!--begin::Col-->
+									<div class="card">
+										<!--begin::Card head-->
+										<div class="card-header card-header-stretch">
+											<!--begin::Title-->
+											<div class="card-title d-flex align-items-center">
+												<i class="ki-duotone ki-abstract-29 fs-1 text-primary me-3 lh-0">
+ <i class="path1"></i>
+ <i class="path2"></i>
+</i>
+												<h3 class="fw-bold m-0 text-gray-800">لاگ های کاربر</h3>
+											</div>
+											<!--end::Title-->
+											<!--begin::Toolbar-->
+											<div class="card-toolbar m-0">
+												<!--begin::Tab nav-->
+												<ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0 fw-bold" role="tablist">
+													<li class="nav-item" role="presentation">
+														<a id="kt_activity_login_tab" class="nav-link justify-content-center text-active-gray-800 active" data-bs-toggle="tab" role="tab" href="#kt_activity_login">لاگ ورود به سیستم</a>
+													</li>
+{#													<li class="nav-item" role="presentation">#}
+{#														<a id="kt_activity_week_tab" class="nav-link justify-content-center text-active-gray-800" data-bs-toggle="tab" role="tab" href="#kt_activity_week">1</a>#}
+{#													</li>#}
+{#													<li class="nav-item" role="presentation">#}
+{#														<a id="kt_activity_month_tab" class="nav-link justify-content-center text-active-gray-800" data-bs-toggle="tab" role="tab" href="#kt_activity_month">2</a>#}
+{#													</li>#}
+{#													<li class="nav-item" role="presentation">#}
+{#														<a id="kt_activity_year_tab" class="nav-link justify-content-center text-active-gray-800 text-hover-gray-800" data-bs-toggle="tab" role="tab" href="#kt_activity_year">3</a>#}
+{#													</li>#}
+												</ul>
+												<!--end::Tab nav-->
+											</div>
+											<!--end::Toolbar-->
+										</div>
+										<!--end::Card head-->
+										<!--begin::Card body-->
+										<div class="card-body">
+											<!--begin::Tab Content-->
+											<div class="tab-content">
+												<!--begin::Tab panel-->
+												<div id="kt_activity_login" class="card-body p-0 tab-pane fade show active" role="tabpanel" aria-labelledby="kt_activity_login_tab">
+													<!--begin::Timeline-->
+												<div class="border mb-5 mb-lg-10">
+										<!--begin::کارت header-->
+										<div class="card-header">
+											<!--begin::Heading-->
+											<div class="card-title">
+												<h3>جلسات ورود به سیستم</h3>
+											</div>
+											<!--end::Heading-->
+											<!--begin::Toolbar-->
+{#											<div class="card-toolbar">#}
+{#												<div class="my-1 me-4">#}
+{#													<!--begin::انتخاب-->#}
+{#													<select class="form-select form-select-sm form-select-solid w-125px" data-control="select2" data-placeholder="انتخاب ساعت" data-hide-search="true">#}
+{#														<option value="1" selected="selected">1 ساعت</option>#}
+{#														<option value="2">6 ساعت</option>#}
+{#														<option value="3">12 ساعت</option>#}
+{#														<option value="4">24 ساعت</option>#}
+{#													</select>#}
+{#													<!--end::انتخاب-->#}
+{#												</div>#}
+{#												<a href="#" class="btn btn-sm btn-primary my-1">نمایش همه</a>#}
+{#											</div>#}
+											<!--end::Toolbar-->
+										</div>
+										<!--end::کارت header-->
+										<!--begin::کارت body-->
+										<div class="card-body p-0">
+											<!--begin::Table wrapper-->
+											<div class="table-responsive">
+												<!--begin::Table-->
+												<table class="table table-flush align-middle table-row-bordered table-row-solid gy-4 gs-9">
+													<!--begin::Thead-->
+													<thead class="border-gray-200 fs-5 fw-semibold bg-lighten">
+														<tr>
+
+															<th class="min-w-100px">وضعیت</th>
+															<th class="min-w-150px">دستگاه</th>
+															<th class="min-w-150px">ادرس ای پی</th>
+															<th class="min-w-150px">زمان</th>
+														</tr>
+													</thead>
+													<!--end::Thead-->
+													<!--begin::Tbody-->
+													<tbody class="fw-6 fw-semibold text-gray-600">
+                                                    {% for log in current_user_logs %}
+														<tr>
+
+															<td>
+																<span class="badge {% if log.action == 'user_logged_in' %} badge-light-primary   {% elif log.action == 'user_logged_out' %} badge-light-success  {% elif log.action == 'user_login_failed' %} badge-light-danger {% endif %} fs-7 fw-bold">{% if log.action == 'user_logged_in' %}ورود موفق {% elif log.action == 'user_logged_out' %} خروج موفق {% elif log.action == 'user_login_failed' %} ورود ناموفق {% endif %}</span>
+															</td>
+															<td>Chrome - Windows</td>
+															<td>{{ log.ip}}</td>
+															<td>{{ log.jpublish }}</td>
+														</tr>
+                                                    {% endfor %}
+													</tbody>
+													<!--end::Tbody-->
+												</table>
+												<!--end::Table-->
+											</div>
+											<!--end::Table wrapper-->
+										</div>
+										<!--end::کارت body-->
+									</div>
+													<!--end::Timeline-->
+												</div>
+												<!--end::Tab panel-->
+												<!--begin::Tab panel-->
+												<div id="kt_activity_week" class="card-body p-0 tab-pane fade show" role="tabpanel" aria-labelledby="kt_activity_week_tab">
+													<!--begin::Timeline-->
+													<div class="timeline">
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-flag fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n2">
+																<!--begin::Timeline heading-->
+																<div class="overflow-auto pe-3">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">Invitation for crafting engaging designs that speak human workshop</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Sent at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
+																			<img src="assets/media/avatars/300-1.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-disconnect fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="mb-5 pe-3">
+																	<!--begin::Title-->
+																	<a href="#" class="fs-5 fw-semibold text-gray-800 text-hover-primary mb-2">3 New Incoming Project Files:</a>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Sent at 10:30 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
+																			<img src="assets/media/avatars/300-23.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="../../demo31/dist/apps/projects/project.html" class="fs-6 text-hover-primary fw-bold">Finance KPI App Guidelines</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">1.9mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--begin::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Client UAT Testing Results</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">18kb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Finance Reports</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">20mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Icon-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-abstract-26 fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">Task
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>merged with
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>in “Ads Pro Admin Dashboard project:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Initiated at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
+																			<img src="assets/media/avatars/300-14.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-pencil fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">3 new application design concepts added:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Created at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
+																			<img src="assets/media/avatars/300-2.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-29.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-31.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-40.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-sms fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">New case
+																	<a href="#" class="text-primary fw-bold me-1">#67890</a>is assigned to you in Multi-platform Database Design project</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="overflow-auto pb-5">
+																		<!--begin::Wrapper-->
+																		<div class="d-flex align-items-center mt-1 fs-6">
+																			<!--begin::Info-->
+																			<div class="text-muted me-2 fs-7">Added at 4:23 PM by</div>
+																			<!--end::Info-->
+																			<!--begin::User-->
+																			<a href="#" class="text-primary fw-bold me-1">Alice Tan</a>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Wrapper-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+													</div>
+													<!--end::Timeline-->
+												</div>
+												<!--end::Tab panel-->
+												<!--begin::Tab panel-->
+												<div id="kt_activity_month" class="card-body p-0 tab-pane fade show" role="tabpanel" aria-labelledby="kt_activity_month_tab">
+													<!--begin::Timeline-->
+													<div class="timeline">
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-pencil fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">3 new application design concepts added:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Created at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
+																			<img src="assets/media/avatars/300-2.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-29.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-31.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-40.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-sms fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">New case
+																	<a href="#" class="text-primary fw-bold me-1">#67890</a>is assigned to you in Multi-platform Database Design project</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="overflow-auto pb-5">
+																		<!--begin::Wrapper-->
+																		<div class="d-flex align-items-center mt-1 fs-6">
+																			<!--begin::Info-->
+																			<div class="text-muted me-2 fs-7">Added at 4:23 PM by</div>
+																			<!--end::Info-->
+																			<!--begin::User-->
+																			<a href="#" class="text-primary fw-bold me-1">Alice Tan</a>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Wrapper-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-basket fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">New order
+																	<a href="#" class="text-primary fw-bold me-1">#67890</a>is placed for Workshow Planning & Budget Estimation</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Placed at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<a href="#" class="text-primary fw-bold me-1">Jimmy Bold</a>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-flag fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n2">
+																<!--begin::Timeline heading-->
+																<div class="overflow-auto pe-3">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">Invitation for crafting engaging designs that speak human workshop</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Sent at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
+																			<img src="assets/media/avatars/300-1.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-disconnect fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="mb-5 pe-3">
+																	<!--begin::Title-->
+																	<a href="#" class="fs-5 fw-semibold text-gray-800 text-hover-primary mb-2">3 New Incoming Project Files:</a>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Sent at 10:30 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
+																			<img src="assets/media/avatars/300-23.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="../../demo31/dist/apps/projects/project.html" class="fs-6 text-hover-primary fw-bold">Finance KPI App Guidelines</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">1.9mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--begin::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Client UAT Testing Results</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">18kb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Finance Reports</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">20mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Icon-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-abstract-26 fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">Task
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>merged with
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>in “Ads Pro Admin Dashboard project:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Initiated at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
+																			<img src="assets/media/avatars/300-14.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+													</div>
+													<!--end::Timeline-->
+												</div>
+												<!--end::Tab panel-->
+												<!--begin::Tab panel-->
+												<div id="kt_activity_year" class="card-body p-0 tab-pane fade show" role="tabpanel" aria-labelledby="kt_activity_year_tab">
+													<!--begin::Timeline-->
+													<div class="timeline">
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-disconnect fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="mb-5 pe-3">
+																	<!--begin::Title-->
+																	<a href="#" class="fs-5 fw-semibold text-gray-800 text-hover-primary mb-2">3 New Incoming Project Files:</a>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Sent at 10:30 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
+																			<img src="assets/media/avatars/300-23.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="../../demo31/dist/apps/projects/project.html" class="fs-6 text-hover-primary fw-bold">Finance KPI App Guidelines</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">1.9mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--begin::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Client UAT Testing Results</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">18kb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Info-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="d-flex flex-aligns-center">
+																			<!--begin::Icon-->
+																			<img alt="../../demo31/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-1 fw-semibold">
+																				<!--begin::Desc-->
+																				<a href="#" class="fs-6 text-hover-primary fw-bold">Finance Reports</a>
+																				<!--end::Desc-->
+																				<!--begin::Number-->
+																				<div class="text-gray-400">20mb</div>
+																				<!--end::Number-->
+																			</div>
+																			<!--end::Icon-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-abstract-26 fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">Task
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>merged with
+																	<a href="#" class="text-primary fw-bold me-1">#45890</a>in “Ads Pro Admin Dashboard project:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Initiated at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
+																			<img src="assets/media/avatars/300-14.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-pencil fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">3 new application design concepts added:</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Created at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
+																			<img src="assets/media/avatars/300-2.jpg" alt="img" />
+																		</div>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+																<!--begin::Timeline details-->
+																<div class="overflow-auto pb-5">
+																	<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-29.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay me-10">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-31.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																		<!--begin::Item-->
+																		<div class="overlay">
+																			<!--begin::Image-->
+																			<div class="overlay-wrapper">
+																				<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-40.jpg" />
+																			</div>
+																			<!--end::Image-->
+																			<!--begin::Link-->
+																			<div class="overlay-layer bg-dark bg-opacity-10 rounded">
+																				<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+																			</div>
+																			<!--end::Link-->
+																		</div>
+																		<!--end::Item-->
+																	</div>
+																</div>
+																<!--end::Timeline details-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-sms fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mb-10 mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">New case
+																	<a href="#" class="text-primary fw-bold me-1">#67890</a>is assigned to you in Multi-platform Database Design project</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="overflow-auto pb-5">
+																		<!--begin::Wrapper-->
+																		<div class="d-flex align-items-center mt-1 fs-6">
+																			<!--begin::Info-->
+																			<div class="text-muted me-2 fs-7">Added at 4:23 PM by</div>
+																			<!--end::Info-->
+																			<!--begin::User-->
+																			<a href="#" class="text-primary fw-bold me-1">Alice Tan</a>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Wrapper-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+														<!--begin::Timeline item-->
+														<div class="timeline-item">
+															<!--begin::Timeline line-->
+															<div class="timeline-line w-40px"></div>
+															<!--end::Timeline line-->
+															<!--begin::Timeline icon-->
+															<div class="timeline-icon symbol symbol-circle symbol-40px">
+																<div class="symbol-label bg-light">
+																	<i class="ki-outline ki-basket fs-2 text-gray-500"></i>
+																</div>
+															</div>
+															<!--end::Timeline icon-->
+															<!--begin::Timeline content-->
+															<div class="timeline-content mt-n1">
+																<!--begin::Timeline heading-->
+																<div class="pe-3 mb-5">
+																	<!--begin::Title-->
+																	<div class="fs-5 fw-semibold mb-2">New order
+																	<a href="#" class="text-primary fw-bold me-1">#67890</a>is placed for Workshow Planning & Budget Estimation</div>
+																	<!--end::Title-->
+																	<!--begin::Description-->
+																	<div class="d-flex align-items-center mt-1 fs-6">
+																		<!--begin::Info-->
+																		<div class="text-muted me-2 fs-7">Placed at 4:23 PM by</div>
+																		<!--end::Info-->
+																		<!--begin::User-->
+																		<a href="#" class="text-primary fw-bold me-1">Jimmy Bold</a>
+																		<!--end::User-->
+																	</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Timeline heading-->
+															</div>
+															<!--end::Timeline content-->
+														</div>
+														<!--end::Timeline item-->
+													</div>
+													<!--end::Timeline-->
+												</div>
+												<!--end::Tab panel-->
+											</div>
+											<!--end::Tab Content-->
+										</div>
+										<!--end::Card body-->
+									</div>
+								<!--end::Col-->
+								<!--begin::Col-->
+
+							<!--end::Row-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
+							<!--begin::Copyright-->
+
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
+							<!--begin::Copyright-->
+
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::کشوs-->
+		<!--begin::فعالیت ها drawer-->
+
+		<!--end::چت drawer-->
+		<!--end::کشوs-->
+		<!--end::Main-->
+		<!--begin::Engage drawers-->
+		<!--begin::دموها drawer-->
+		<!--end::دموها drawer-->
+		<!--begin::کمک drawer-->
+
+		<!--end::کمک drawer-->
+		<!--end::Engage drawers-->
+		<!--begin::Engage modals-->
+		<!--end::Engage modals-->
+		<!--begin::Engage toolbar-->
+		<div class="engage-toolbar d-flex position-fixed px-5 fw-bold zindex-2 top-50 end-0 transform-90 mt-5 mt-lg-20 gap-2">
+			<!--begin::دموها drawer toggle-->
+			<button id="kt_engage_demos_toggle" class="engage-demos-toggle engage-btn btn shadow-sm fs-6 px-4 rounded-top-0" title="30 دموی دیگر را بررسی کنید" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click" data-bs-trigger="hover">
+				<span id="kt_engage_demos_label">دموها</span>
+			</button>
+			<!--end::دموها drawer toggle-->
+			<!--begin::کمک drawer toggle-->
+			<!--end::کمک drawer toggle-->
+		</div>
+		<!--end::Engage toolbar-->
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+			<span class="svg-icon">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+		</div>
+		<!--end::Scrolltop-->
+		<!--begin::Modals-->
+		<!--begin::Modal - ارتقا دهید plan-->
+		<!--end::Modal - Users جستجو-->
+		<!--end::Modals-->
+		<!--begin::Javascript-->
+		<script>var hostUrl = "assets3/";</script>
+		<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+		<script src="{% static 'assets3/plugins/global/plugins.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/scripts.bundle.js' %}"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="{% static 'assets3/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="{% static 'assets3/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::سفارشی Javascript(used for this page only)-->
+		<script src="{% static 'assets3/js/widgets.bundle.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/widgets.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/apps/chat/chat.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/create-app.js' %}"></script>
+		<script src="{% static 'assets3/js/custom/utilities/modals/users-search.js' %}"></script>
+		<!--end::سفارشی Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>

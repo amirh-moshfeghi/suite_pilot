@@ -12,6 +12,7 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from Accounts.models import AuditEntry
 from django.contrib.gis.geoip2 import GeoIP2
+from .models import QuickLinks, SubMenu
 
 
 
@@ -21,11 +22,14 @@ from django.contrib.gis.geoip2 import GeoIP2
 def home(request):
     current_user_username=request.user.username
     current_user_logs = AuditEntry.objects.filter(username=current_user_username)
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
+
 
     # g = GeoIP2()
 
     print(current_user_logs[0].ip)
-    return render(request, "dashboard/index_final.html",{'current_user_logs':current_user_logs})
+    return render(request, "dashboard/index_final.html",{'current_user_logs':current_user_logs,'quick_links':quick_links,'submenu':submenu})
 
 @login_required()
 def notifs_box(request):
@@ -34,3 +38,4 @@ def notifs_box(request):
         "notifs": Notification.objects.all().order_by('-publish')
     }
     return render(request, "dashboard/index_final.html", context)
+
