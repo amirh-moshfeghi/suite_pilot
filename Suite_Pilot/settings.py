@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'Stickynotes.apps.StickynotesConfig',
     'formtools',
-    'Tasks.apps.TasksConfig'
+    'Tasks.apps.TasksConfig',
+    'Food_Reserve.apps.FoodReserveConfig'
 ]
 
 MIDDLEWARE = [

@@ -30,6 +30,7 @@ urlpatterns = [
     path('Boards/', include('Boards.urls')),
     path('Sticky', include('Stickynotes.urls')),
     path('', include('Tasks.urls')),
+    path('', include('Food_Reserve.urls')),
 
 ]
 
