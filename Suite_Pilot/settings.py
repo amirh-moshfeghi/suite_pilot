@@ -55,7 +55,10 @@ INSTALLED_APPS = [
     'Stickynotes.apps.StickynotesConfig',
     'formtools',
     'Tasks.apps.TasksConfig',
-    'Food_Reserve.apps.FoodReserveConfig'
+    'Food_Reserve.apps.FoodReserveConfig',
+    'Coding.apps.CodingConfig',
+    'smart_selects',
+    'Codings.apps.CodingsConfig'
 ]
 
 MIDDLEWARE = [
@@ -284,3 +287,5 @@ TINYMCE_COMPRESSOR = False
 LOGOUT_REDIRECT_URL = 'Account:login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+USE_DJANGO_JQUERY = True

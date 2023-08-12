@@ -31,6 +31,11 @@ urlpatterns = [
     path('Sticky', include('Stickynotes.urls')),
     path('', include('Tasks.urls')),
     path('', include('Food_Reserve.urls')),
+    path('Coding/', include('Coding.urls')),
+    path('Codings/', include('Codings.urls')),
+    path('chaining/', include('smart_selects.urls')),
+
+
 
 ]
 

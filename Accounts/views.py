@@ -30,7 +30,7 @@ def login_view(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect(reverse_lazy('home'))
+            return redirect(reverse_lazy('Dashboard:home'))
 
         else:
             messages.error(request, 'نام کاربری یا گذرواژه وارد شده نادرست است')
