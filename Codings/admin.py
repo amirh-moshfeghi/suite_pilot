@@ -21,20 +21,20 @@ class ChildSpecsValueAdmin(admin.ModelAdmin):
 
 admin.site.register(ChildSpecsValue, ChildSpecsValueAdmin)
 
-class AmountAdmin(admin.ModelAdmin):
-    ordering = ('amount',)
-    pass
+# class AmountAdmin(admin.ModelAdmin):
+#     ordering = ('amount',)
+#     pass
+#
+#
+# admin.site.register(Amount, AmountAdmin)
 
 
-admin.site.register(Amount, AmountAdmin)
-
-
-class UnitAdmin(admin.ModelAdmin):
-    ordering = ('unit',)
-    pass
-
-
-admin.site.register(Unit, UnitAdmin)
+# class UnitAdmin(admin.ModelAdmin):
+#     ordering = ('unit',)
+#     pass
+#
+#
+# admin.site.register(Unit, UnitAdmin)
 
 
 class SubcategoryAdmin(admin.ModelAdmin):
@@ -53,84 +53,84 @@ class RecipeNameAdmin(admin.ModelAdmin):
 admin.site.register(RecipeName, RecipeNameAdmin)
 
 
-class ImageAdmin(admin.ModelAdmin):
-    ordering = ('image_title',)
-    pass
+# class ImageAdmin(admin.ModelAdmin):
+#     ordering = ('image_title',)
+#     pass
+#
+#
+# admin.site.register(Image, ImageAdmin)
 
 
-admin.site.register(Image, ImageAdmin)
+# class IngredientAdmin(admin.ModelAdmin):
+#     ordering = ('ingredient',)
+#     pass
+#
+#
+# admin.site.register(Ingredient, IngredientAdmin)
 
 
-class IngredientAdmin(admin.ModelAdmin):
-    ordering = ('ingredient',)
-    pass
+# class RecipeCookwareAdmin(admin.ModelAdmin):
+#     pass
+#
+#
+# admin.site.register(RecipeCookware, RecipeCookwareAdmin)
 
 
-admin.site.register(Ingredient, IngredientAdmin)
+# class CookwareAdmin(admin.ModelAdmin):
+#     ordering = ('cookware',)
+#     pass
+#
+#
+# admin.site.register(Cookware, CookwareAdmin)
 
 
-class RecipeCookwareAdmin(admin.ModelAdmin):
-    pass
+# class CookTimeAdmin(admin.ModelAdmin):
+#     pass
+#
+#
+# admin.site.register(CookTime, CookTimeAdmin)
 
 
-admin.site.register(RecipeCookware, RecipeCookwareAdmin)
+# class HourAdmin(admin.ModelAdmin):
+#     ordering = ('hour',)
+#     pass
+#
+#
+# admin.site.register(Hour, HourAdmin)
 
 
-class CookwareAdmin(admin.ModelAdmin):
-    ordering = ('cookware',)
-    pass
+# class MinuteAdmin(admin.ModelAdmin):
+#     ordering = ('minute',)
+#     pass
 
 
-admin.site.register(Cookware, CookwareAdmin)
-
-
-class CookTimeAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(CookTime, CookTimeAdmin)
-
-
-class HourAdmin(admin.ModelAdmin):
-    ordering = ('hour',)
-    pass
-
-
-admin.site.register(Hour, HourAdmin)
-
-
-class MinuteAdmin(admin.ModelAdmin):
-    ordering = ('minute',)
-    pass
-
-
-admin.site.register(Minute, MinuteAdmin)
-
-
-class ServingSizeAdmin(admin.ModelAdmin):
-    ordering = ('servingsize',)
-    pass
-
-
-admin.site.register(ServingSize, ServingSizeAdmin)
+# admin.site.register(Minute, MinuteAdmin)
+#
+#
+# class ServingSizeAdmin(admin.ModelAdmin):
+#     ordering = ('servingsize',)
+#     pass
+#
+#
+# admin.site.register(ServingSize, ServingSizeAdmin)
 
 
 # INLINES
 
-class RecipeCookwareInLine(admin.TabularInline):
-    model = RecipeCookware
-    extra = 0
-
-
-class RecipeIngredientInline(admin.TabularInline):
-    model = RecipeIngredient
-    extra = 0
-
-
-class DirectionInLine(admin.TabularInline):
-    model = Direction
-    extra = 0
-
+# class RecipeCookwareInLine(admin.TabularInline):
+#     model = RecipeCookware
+#     extra = 0
+#
+#
+# class RecipeIngredientInline(admin.TabularInline):
+#     model = RecipeIngredient
+#     extra = 0
+#
+#
+# class DirectionInLine(admin.TabularInline):
+#     model = Direction
+#     extra = 0
+#
 
 # ADMIN Interface
 
@@ -144,7 +144,7 @@ class RecipeAdmin(admin.ModelAdmin):
         (None, {'fields': ['cooktime']}),
         (None, {'fields': ['servingsize']})
     ]
-    inlines = [RecipeCookwareInLine, RecipeIngredientInline, DirectionInLine]
+    # inlines = [RecipeCookwareInLine, RecipeIngredientInline, DirectionInLine]
 
 
 admin.site.register(Recipe, RecipeAdmin)

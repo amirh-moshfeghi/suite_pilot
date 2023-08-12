@@ -67,6 +67,10 @@ class Unit(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=250)
 
+    class Meta:
+        verbose_name = 'Materia Group'
+        verbose_name_plural = 'Material Groups'
+
     def __str__(self):
         return self.category
 
@@ -74,6 +78,10 @@ class Category(models.Model):
 class Subcategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.CharField(max_length=250, default="")
+
+    class Meta:
+        verbose_name = 'Identity Group'
+        verbose_name_plural = 'Identity Groups'
 
     def __str__(self):
         return self.subcategory
@@ -83,6 +91,10 @@ class RecipeName(models.Model):
     # description = models.TextField(default="")
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     recipename = models.CharField(max_length=250, default="")
+
+    class Meta:
+        verbose_name = 'Child Spec'
+        verbose_name_plural = 'Child Specs'
 
     def __str__(self):
         return self.recipename
@@ -130,6 +142,10 @@ class Recipe(models.Model):
     description = models.TextField(default=None, blank=True, null=True)
     cooktime = models.ForeignKey(CookTime, on_delete=models.CASCADE, default=None, blank=True, null=True)
     servingsize = models.ForeignKey(ServingSize, on_delete=models.CASCADE, default=None, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Chain'
+        verbose_name_plural = 'Chains'
 
     def __str__(self):
         # pylint: disable=E1101
