@@ -1,29 +1,59 @@
 from django.db import models
 
-class Material_Group(models.Model):
-    name = models.CharField(max_length=30)
-    Material_id = models.CharField(max_length=30)
-    abbr = models.CharField(max_length=30)
-    parent_id = models.CharField(max_length=30)
+class MaterialGroup(models.Model):
+    material_group = models.CharField(max_length=250)
+    parent_id = models.IntegerField(default=0)
+    abb = models.CharField(max_length=250, null=True)
+
+    class Meta:
+        verbose_name = 'Material_Group'
+        verbose_name_plural = 'Material_Groups'
 
     def __str__(self):
-        return self.name
+        return self.material_group
 
-class Identity_Group(models.Model):
-    name = models.ForeignKey(Material_Group, on_delete=models.CASCADE, related_name='Identity_Group_name')
-    Identity_id = models.ForeignKey(Material_Group, on_delete=models.CASCADE,related_name='Identity_Group_identity_id')
-    abbr = models.ForeignKey(Material_Group, on_delete=models.CASCADE,related_name='Identity_Group_abbr')
-    parent_id = models.ForeignKey(Material_Group, on_delete=models.CASCADE, related_name='Identity_Group_parent_id')
 
-    def __str__(self):
-        return self.name
+class IdentityGroup(models.Model):
+    material_group = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
+    identity_group = models.CharField(max_length=256, null=True)
+    # parent_id = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
+    abb = models.CharField(max_length=250, null=True)
 
-class Child_Specs(models.Model):
-    parent_name = models.ForeignKey(Identity_Group, on_delete=models.SET_NULL, null=True, related_name='Child_Specs_parent_name')
-    parent_id = models.ForeignKey(Identity_Group, on_delete=models.SET_NULL, null=True,related_name='Child_Specs_parent_id')
-    name = models.ForeignKey(Identity_Group, on_delete=models.SET_NULL, null=True, related_name='Child_Specs_name')
-    value = models.ForeignKey(Identity_Group, on_delete=models.SET_NULL, null=True, related_name='Child_Specs_value')
-
+    class Meta:
+        verbose_name = 'Identity_Group'
+        verbose_name_plural = 'Identity_Groups'
 
     def __str__(self):
-        return self.name
+        return self.identity_group
+
+
+class Child(models.Model):
+    material_group = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
+    # description = models.TextField(default="")
+    identity_group = models.ForeignKey(IdentityGroup, on_delete=models.CASCADE)
+    # parent_id = models.ForeignKey(IdentityGroup, on_delete=models.CASCADE)
+    child_group = models.CharField(max_length=250, null=True)
+    position = models.CharField(max_length=256, null=True)
+
+
+    class Meta:
+        verbose_name = 'Child_Group'
+        verbose_name_plural = 'Child_Groups'
+
+    def __str__(self):
+        return self.child_group
+
+
+class Values(models.Model):
+    material_group = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
+    # description = models.TextField(default="")
+    identity_group = models.ForeignKey(IdentityGroup, on_delete=models.CASCADE)
+    # parent_id = models.ForeignKey(IdentityGroup, on_delete=models.CASCADE)
+    child_group = models.ForeignKey(Child, on_delete=models.CASCADE, null=True)
+    child_abb = models.CharField(max_length=256, null=True)
+    child_desc = models.CharField(max_length=256, null=True)
+    value = models.CharField(max_length=256, null=True)
+
+    def __str__(self):
+        return self.value
+
