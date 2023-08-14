@@ -43,6 +43,7 @@ function doStuff() {
     const materialGroupDataBox = document.getElementById('material-group-data-box')
     const identityGroupDataBox = document.getElementById('identity-group-data-box')
     const childGroupDataBox = document.getElementById('child-group-data-box')
+    const valueGroupDataBox = document.getElementById('value-group-data-box')
 
     $.ajax({
                 type: 'GET',
@@ -89,6 +90,7 @@ materialGroupInput.addEventListener('change', e=>{
         success : function (response){
             const identityGroupData = response.data
             identityGroupData.map(item=>{
+                {#console.log(item,'item')#}
                  const option = document.createElement('option')
                         option.textContent = item.identity_group
                         option.setAttribute('value', item.identity_group)
@@ -108,6 +110,8 @@ materialGroupInput.addEventListener('change', e=>{
 identityGroupInput.addEventListener('change', e=>{
         {#console.log(e.target.value,'identity_groups')#}
         const selectedIdentityGroup = e.target.value
+        {#const selectedChildGroup = e.target.value#}
+        {#console.log(e.target.value,'selectedIdentityGroup')#}
         selectedIdentityGroup.innerHTML = ""
         {#subText.textContent = "Identity Group"#}
         {#subText.classList = "default"#}
@@ -127,11 +131,11 @@ identityGroupInput.addEventListener('change', e=>{
 
                 {#var select = document.createElement('select');#}
                 {#var option = document.createElement('option');#}
-                var label = document.createElement('label');
+                var th = document.createElement('th');
                 {#select.className = 'custom-select custom-select-lg form-select';#}
                 {#select.id = "child-group-data-box"#}
-                {#option.setAttribute('data-value',item.child_group)#}
-                label.textContent = item.child_group
+                th.setAttribute('scope','row')
+                th.textContent = item.child_group
                 {#option.setAttribute('label',item.child_group)#}
                 {#console.log(item,'iteeeeeeeeem')#}
                 {#option.textContent = item.child#}
@@ -140,7 +144,7 @@ identityGroupInput.addEventListener('change', e=>{
 
                 {#select.appendChild(option);#}
                 {#label.appendChild(select);#}
-                childGroupDataBox.appendChild(label)
+                childGroupDataBox.appendChild(th)
 
             })
         },
@@ -148,55 +152,95 @@ identityGroupInput.addEventListener('change', e=>{
             console.log(error)
         }
     })
+    $.ajax({
+                type: 'GET',
+                url : 'Child_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}/${selectedChildGroup}',
+                success: function (response){
+
+                    const childGroupData = response.data
+                    console.log(childGroupData,'childGroupData')
+                    childGroupData.map(item =>{
+
+
+                        console.log(item,'item')
+                        const option = document.createElement('option')
+                        const select = document.createElement('select')
+                        const td = document.createElement('td')
+                        option.textContent = item
+                        option.setAttribute('class', 'item')
+                        {#option.setAttribute('class', 'item')#}
+                        option.setAttribute('value', item)
+                        {#console.log(option,'option')#}
+
+                        select.appendChild(option)
+                        td.appendChild(select)
+                        childGroupDataBox.appendChild(td)
+                        {#console.log(materialGroupDataBox)#}
+
+
+                    })
+                }
+                ,
+                error: function (error){
+                    console.log(error)
+                }
+
+            })
 
     })
 
-var global_selectedIdentityGroup = null
-childGroupInput.addEventListener('change', e=>{
+{#var global_selectedIdentityGroup = null#}
+{#childGroupInput.addEventListener('change', e=>{#}
         {#console.log(e.target.value,'identity_groups')#}
-        const selectedChildGroup = e.target.value
-        selectedChildGroup.innerHTML = ""
+{#        const selectedChildGroup = e.target.value#}
+{#        selectedChildGroup.innerHTML = ""#}
         {#subText.textContent = "Identity Group"#}
         {#subText.classList = "default"#}
-
-
-
-    $.ajax({
-        type:'GET',
-        url : `Child_Group_Selected/${global_selectedMaterialGroup}/${global_selectedIdentityGroup}/${selectedChildGroup}`,
-        success : function (response){
-
-            const childGroupData = response.data
-
-            childGroupData.map(item=>{
-
-
-
-                var select = document.createElement('select');
-                var option = document.createElement('option');
+{##}
+{##}
+{##}
+{#    $.ajax({#}
+{#        type:'GET',#}
+{#        url : `Child_Group_Selected/${global_selectedMaterialGroup}/${global_selectedIdentityGroup}/${selectedChildGroup}`,#}
+{#        success : function (response){#}
+{##}
+{#            const childGroupData = response.data#}
+{##}
+{#            childGroupData.map(item=>{#}
+{##}
+{##}
+{##}
+{#                var select = document.createElement('select');#}
+{#                var option = document.createElement('option');#}
                 {#var label = document.createElement('label');#}
-                select.className = 'custom-select custom-select-lg form-select';
-                select.id = "child-group-data-box"
-                option.setAttribute('data-value',item.value)
+{#                select.className = 'custom-select custom-select-lg form-select';#}
+{#                select.id = "child-group-data-box"#}
+{#                option.setAttribute('data-value',item.value)#}
                 {#label.textContent = item.value#}
-                option.setAttribute('label',item.value)
-                console.log(item,'iteeeeeeeeem')
+{#                option.setAttribute('label',item.value)#}
+{#                console.log(item,'iteeeeeeeeem')#}
                 {#option.textContent = item.child#}
-                option.setAttribute('value', item.value)
-
-
-                select.appendChild(option);
+{#                option.setAttribute('value', item.value)#}
+{##}
+{##}
+{#                select.appendChild(option);#}
                 {#label.appendChild(select);#}
-                childGroupDataBox.appendChild(select)
+{#                childGroupDataBox.appendChild(select)#}
+{##}
+{#            })#}
+{#        },#}
+{#        error : function (error){#}
+{#            console.log(error)#}
+{#        }#}
+{#    })#}
+{##}
+{#    })#}
 
-            })
-        },
-        error : function (error){
-            console.log(error)
-        }
-    })
 
-    })
+
+
+
+
 
 }
 
@@ -346,23 +390,43 @@ childGroupInput.addEventListener('change', e=>{
     </tbody>
 </table>
 
-<table id="kt_datatable_example_3" class="table table-row-bordered table-row-dashed gy-5" style="max-width: 100%; table-layout: fixed" >
-
-    <tbody >
-        <tr >
-        <tr>
-
-            <th style="gap:10px;display: grid; grid-template-columns:repeat(3,1fr) " id ="child-group-data-box">
+{#<table id="kt_datatable_example_3" class="table table-row-bordered table-row-dashed gy-5" style="max-width: 100%; table-layout: fixed" >#}
+{##}
+{#    <thead >#}
+{#    #}
+{#    <tr style="gap:10px;display: grid; grid-template-columns:repeat(3,1fr) " id ="child-group-data-box">#}
+{##}
 {#                <select  class="form-select  form-select-solid" size="1" id="child-group-data-box" name="row-1-office">#}
 {#                    <option value="Edinburgh" selected="selected">#}
 {#                        Edinburgh#}
 {#                    </option>#}
 {#                                  </select>#}
-            </th>
-        </tr>
+{##}
+{#        </tr>#}
+{##}
+{#    </thead>#}
+{#    <tbody>#}
+{#        <tr>#}
+{#            <td id ="value-group-data-box">#}
+{##}
+{#            </td>#}
+{##}
+{#        </tr>#}
+{#</table>#}
 
-    </tbody>
+
+
+
+                <table class="table table-striped">
+  <tbody>
+    <tr id="child-group-data-box">
+
+    </tr>
+  </tbody>
 </table>
+
+
+
 
 
 
