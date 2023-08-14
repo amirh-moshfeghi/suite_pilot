@@ -34,6 +34,7 @@ class Child(models.Model):
     # parent_id = models.ForeignKey(IdentityGroup, on_delete=models.CASCADE)
     child_group = models.CharField(max_length=250, null=True)
     position = models.CharField(max_length=256, null=True)
+    child_id_as_parent = models.IntegerField(null=True)
 
 
     class Meta:
@@ -53,6 +54,8 @@ class Values(models.Model):
     child_abb = models.CharField(max_length=256, null=True)
     child_desc = models.CharField(max_length=256, null=True)
     value = models.CharField(max_length=256, null=True)
+    child_id_as_child = models.IntegerField(null=True)
+
 
     def __str__(self):
         return self.value

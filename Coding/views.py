@@ -23,12 +23,15 @@ def json_material_group_selected_data(request,*args, **kwargs):
 def json_identity_group_selected_data(request,*args, **kwargs):
     selected_identity = kwargs.get('identity_group')
     obj_child_group = list(Child.objects.filter(identity_group__identity_group=selected_identity).values('child_group'))
-    # print(obj_child_group)
+    print(obj_child_group)
+
+    # obj_child_child = list(Values.objects.all().values_list('child_id_as_child'))
+    # obj_value_group = list(Values.objects.filter(child_group__child_group= 'Anchor Bolts with shape of L'))
     return JsonResponse({'data': obj_child_group})
 
 def json_child_group_data(request,*args, **kwargs):
-    selected_group = kwargs.get('child_group')
-    print(selected_group)
-    obj_value_group = list(Values.objects.filter(child_group__child_group=selected_group).values())
+    obj_value_group = list(Values.objects.values_list('value','child_id_as_child'))
+    obj_parent_group = list(Values.objects.values_list('value','child_id_as_child'))
+
     print(obj_value_group)
     return JsonResponse({'data': obj_value_group})

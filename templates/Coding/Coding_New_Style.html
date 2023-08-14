@@ -82,26 +82,18 @@ materialGroupInput.addEventListener('change', e=>{
         const selectedMaterialGroup = e.target.value
         global_selectedMaterialGroup = selectedMaterialGroup
         identityGroupDataBox.innerHTML = ""
-        {#subText.textContent = "Identity Group"#}
-        {#subText.classList = "default"#}
-
-
 
     $.ajax({
         type:'GET',
         url : `Material_Group_Selected/${selectedMaterialGroup}/`,
         success : function (response){
-            {#console.log(response.data)#}
             const identityGroupData = response.data
             identityGroupData.map(item=>{
                  const option = document.createElement('option')
                         option.textContent = item.identity_group
-                        {#option.setAttribute('class', 'item')#}
-                        {#option.setAttribute('class', 'item')#}
                         option.setAttribute('value', item.identity_group)
-                        {#console.log(option,'option')#}
                         identityGroupDataBox.appendChild(option)
-                        {#console.log(identityGroupDataBox,'identityGroupDataBox')#}
+
             })
         },
         error : function (error){
@@ -126,40 +118,77 @@ identityGroupInput.addEventListener('change', e=>{
         type:'GET',
         url : `Identity_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}`,
         success : function (response){
-            {#console.log(response.data,'identity_groooop')#}
-            {#console.log(global_selectedMaterialGroup,'gooooolabk')#}
+
             const identityGroupData = response.data
-            {#console.log(identityGroupData,'datyaaaaaaaa')#}
+
             identityGroupData.map(item=>{
+
+
+
+                {#var select = document.createElement('select');#}
+                {#var option = document.createElement('option');#}
+                var label = document.createElement('label');
+                {#select.className = 'custom-select custom-select-lg form-select';#}
+                {#select.id = "child-group-data-box"#}
+                {#option.setAttribute('data-value',item.child_group)#}
+                label.textContent = item.child_group
+                {#option.setAttribute('label',item.child_group)#}
+                {#console.log(item,'iteeeeeeeeem')#}
+                {#option.textContent = item.child#}
+                {#option.setAttribute('value', item.child_group)#}
+
+
+                {#select.appendChild(option);#}
+                {#label.appendChild(select);#}
+                childGroupDataBox.appendChild(label)
+
+            })
+        },
+        error : function (error){
+            console.log(error)
+        }
+    })
+
+    })
+
+var global_selectedIdentityGroup = null
+childGroupInput.addEventListener('change', e=>{
+        {#console.log(e.target.value,'identity_groups')#}
+        const selectedChildGroup = e.target.value
+        selectedChildGroup.innerHTML = ""
+        {#subText.textContent = "Identity Group"#}
+        {#subText.classList = "default"#}
+
+
+
+    $.ajax({
+        type:'GET',
+        url : `Child_Group_Selected/${global_selectedMaterialGroup}/${global_selectedIdentityGroup}/${selectedChildGroup}`,
+        success : function (response){
+
+            const childGroupData = response.data
+
+            childGroupData.map(item=>{
 
 
 
                 var select = document.createElement('select');
                 var option = document.createElement('option');
-                var label = document.createElement('label');
+                {#var label = document.createElement('label');#}
                 select.className = 'custom-select custom-select-lg form-select';
                 select.id = "child-group-data-box"
-                option.setAttribute('data-value',item.child_group)
-                label.textContent = item.child_group
-                option.setAttribute('label',item.child_group)
+                option.setAttribute('data-value',item.value)
+                {#label.textContent = item.value#}
+                option.setAttribute('label',item.value)
                 console.log(item,'iteeeeeeeeem')
                 {#option.textContent = item.child#}
-                option.setAttribute('value', item.child_group)
+                option.setAttribute('value', item.value)
 
 
-                {#span.appendChild(document.createTextNode('Jan'));#}
                 select.appendChild(option);
-                label.appendChild(select);
-                childGroupDataBox.appendChild(label)
+                {#label.appendChild(select);#}
+                childGroupDataBox.appendChild(select)
 
-                 {#const option = document.createElement('option')#}
-                 {#       option.textContent = item.identity_group#}
-                 {#       option.setAttribute('class', 'item')#}
-                        {#option.setAttribute('class', 'item')#}
-                 {#       option.setAttribute('value', item.identity_group)#}
-                 {#       console.log(option,'option')#}
-                 {#       identityGroupDataBox.appendChild(option)#}
-                 {#       console.log(identityGroupDataBox,'identityGroupDataBox')#}
             })
         },
         error : function (error){
@@ -177,7 +206,6 @@ identityGroupInput.addEventListener('change', e=>{
         </script>
 
 
-{#        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />#}
 
 
 
@@ -186,7 +214,7 @@ identityGroupInput.addEventListener('change', e=>{
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
-	<body id="kt_body" style="background-image: url()" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled">
+	<body id="kt_body"  class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled">
 		<!--begin::Theme mode setup on page load-->
 		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getآیتم("data-theme") !== null ) { themeMode = localStorage.getآیتم("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
 		<!--end::Theme mode setup on page load-->
@@ -310,6 +338,8 @@ identityGroupInput.addEventListener('change', e=>{
             </td>
 
 
+
+
         </tr>
 
 
@@ -322,13 +352,13 @@ identityGroupInput.addEventListener('change', e=>{
         <tr >
         <tr>
 
-            <td style="gap:10px;display: grid; grid-template-columns:repeat(3,1fr) " id ="child-group-data-box">
+            <th style="gap:10px;display: grid; grid-template-columns:repeat(3,1fr) " id ="child-group-data-box">
 {#                <select  class="form-select  form-select-solid" size="1" id="child-group-data-box" name="row-1-office">#}
 {#                    <option value="Edinburgh" selected="selected">#}
 {#                        Edinburgh#}
 {#                    </option>#}
 {#                                  </select>#}
-            </td>
+            </th>
         </tr>
 
     </tbody>
