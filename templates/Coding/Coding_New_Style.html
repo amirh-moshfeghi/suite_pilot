@@ -47,9 +47,9 @@ function doStuff() {
 
     $.ajax({
                 type: 'GET',
-                url : '/Coding/Material_Group_All/',
+                url : '/Coding/Parent_Group_Selected/',
                 success: function (response){
-                    console.log(response)
+                    {#console.log(response)#}
                     const materialGroupData = response.data
                     materialGroupData.map(item =>{
                         const option = document.createElement('option')
@@ -77,6 +77,7 @@ const childGroupInput = document.getElementById('child_groups')
 {#const subText = document.getElementById('sub-text')#}
 
 var global_selectedMaterialGroup = null
+var global_selectedIdentityGroup = null
 
 materialGroupInput.addEventListener('change', e=>{
         {#console.log(e.target.value,'material_groups')#}
@@ -89,11 +90,11 @@ materialGroupInput.addEventListener('change', e=>{
         url : `Material_Group_Selected/${selectedMaterialGroup}/`,
         success : function (response){
             const identityGroupData = response.data
+            {#console.log(identityGroupData)#}
             identityGroupData.map(item=>{
                 {#console.log(item,'item')#}
                  const option = document.createElement('option')
-                        option.textContent = item.identity_group
-                        option.setAttribute('value', item.identity_group)
+                        option.setAttribute('value', item.material_group)
                         identityGroupDataBox.appendChild(option)
 
             })
@@ -108,76 +109,32 @@ materialGroupInput.addEventListener('change', e=>{
 
 
 identityGroupInput.addEventListener('change', e=>{
-        {#console.log(e.target.value,'identity_groups')#}
         const selectedIdentityGroup = e.target.value
-        {#const selectedChildGroup = e.target.value#}
-        {#console.log(e.target.value,'selectedIdentityGroup')#}
         selectedIdentityGroup.innerHTML = ""
-        {#subText.textContent = "Identity Group"#}
-        {#subText.classList = "default"#}
 
 
 
-    $.ajax({
-        type:'GET',
-        url : `Identity_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}`,
-        success : function (response){
+      $.ajax({
+                type: 'GET',
+                url : `Identity_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}`,
+                success: function (response){
+                    const childGroupData = response.data
 
-            const identityGroupData = response.data
+                    childGroupData.map(item =>{
+                        const th = document.createElement('th')
+                        const td = document.createElement('td')
+                        const select = document.createElement('select')
+                        const option = document.createElement('option')
 
-            identityGroupData.map(item=>{
-
-
-
-                {#var select = document.createElement('select');#}
-                {#var option = document.createElement('option');#}
-                var th = document.createElement('th');
-                {#select.className = 'custom-select custom-select-lg form-select';#}
-                {#select.id = "child-group-data-box"#}
                 th.setAttribute('scope','row')
                 th.textContent = item.child_group
-                {#option.setAttribute('label',item.child_group)#}
-                {#console.log(item,'iteeeeeeeeem')#}
-                {#option.textContent = item.child#}
-                {#option.setAttribute('value', item.child_group)#}
-
-
-                {#select.appendChild(option);#}
-                {#label.appendChild(select);#}
-                childGroupDataBox.appendChild(th)
-
-            })
-        },
-        error : function (error){
-            console.log(error)
-        }
-    })
-    $.ajax({
-                type: 'GET',
-                url : 'Child_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}/${selectedChildGroup}',
-                success: function (response){
-
-                    const childGroupData = response.data
-                    console.log(childGroupData,'childGroupData')
-                    childGroupData.map(item =>{
-
-
-                        console.log(item,'item')
-                        const option = document.createElement('option')
-                        const select = document.createElement('select')
-                        const td = document.createElement('td')
-                        option.textContent = item
+                        option.setAttribute('value', item.value_desc)
                         option.setAttribute('class', 'item')
-                        {#option.setAttribute('class', 'item')#}
-                        option.setAttribute('value', item)
-                        {#console.log(option,'option')#}
-
                         select.appendChild(option)
                         td.appendChild(select)
-                        childGroupDataBox.appendChild(td)
-                        {#console.log(materialGroupDataBox)#}
-
-
+                        th.appendChild(td)
+                        childGroupDataBox.appendChild(th)
+                        option.setAttribute('value', item.value_desc)
                     })
                 }
                 ,
@@ -187,60 +144,8 @@ identityGroupInput.addEventListener('change', e=>{
 
             })
 
+
     })
-
-{#var global_selectedIdentityGroup = null#}
-{#childGroupInput.addEventListener('change', e=>{#}
-        {#console.log(e.target.value,'identity_groups')#}
-{#        const selectedChildGroup = e.target.value#}
-{#        selectedChildGroup.innerHTML = ""#}
-        {#subText.textContent = "Identity Group"#}
-        {#subText.classList = "default"#}
-{##}
-{##}
-{##}
-{#    $.ajax({#}
-{#        type:'GET',#}
-{#        url : `Child_Group_Selected/${global_selectedMaterialGroup}/${global_selectedIdentityGroup}/${selectedChildGroup}`,#}
-{#        success : function (response){#}
-{##}
-{#            const childGroupData = response.data#}
-{##}
-{#            childGroupData.map(item=>{#}
-{##}
-{##}
-{##}
-{#                var select = document.createElement('select');#}
-{#                var option = document.createElement('option');#}
-                {#var label = document.createElement('label');#}
-{#                select.className = 'custom-select custom-select-lg form-select';#}
-{#                select.id = "child-group-data-box"#}
-{#                option.setAttribute('data-value',item.value)#}
-                {#label.textContent = item.value#}
-{#                option.setAttribute('label',item.value)#}
-{#                console.log(item,'iteeeeeeeeem')#}
-                {#option.textContent = item.child#}
-{#                option.setAttribute('value', item.value)#}
-{##}
-{##}
-{#                select.appendChild(option);#}
-                {#label.appendChild(select);#}
-{#                childGroupDataBox.appendChild(select)#}
-{##}
-{#            })#}
-{#        },#}
-{#        error : function (error){#}
-{#            console.log(error)#}
-{#        }#}
-{#    })#}
-{##}
-{#    })#}
-
-
-
-
-
-
 
 }
 
