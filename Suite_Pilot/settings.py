@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'Food_Reserve.apps.FoodReserveConfig',
     'Coding.apps.CodingConfig',
     'smart_selects',
-    'Codings.apps.CodingsConfig'
+    'Codings.apps.CodingsConfig',
+    'django_jsonform'
 ]
 
 MIDDLEWARE = [

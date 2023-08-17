@@ -1,4 +1,5 @@
 from django.db import models
+from django_jsonform.models.fields import JSONField
 
 
 class MaterialGroup(models.Model):
@@ -23,11 +24,28 @@ class MaterialGroup(models.Model):
 
 
 class Child(models.Model):
+    ITEMS_SCHEMA = {
+    'type': 'list',
+    'items': {
+        'type': 'dict',
+        'keys': {
+            'description': {
+                'type': 'string'
+            },
+            'abbr': {
+                'type': 'string'
+            },
+
+        }
+    }
+}
+
     material_group = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
     child_group = models.CharField(max_length=256, null=True)
     child_position = models.IntegerField(default=0)
     child_parent_id = models.IntegerField(default=0)
-    child_value_id = models.IntegerField(default=0)
+    child_desc = JSONField(schema=ITEMS_SCHEMA, null=True)
+
 
     class Meta:
         verbose_name = 'Child_Group'
@@ -37,13 +55,5 @@ class Child(models.Model):
         return self.child_group
 
 
-class Values(models.Model):
-    material_group = models.ForeignKey(MaterialGroup, on_delete=models.CASCADE)
-    child_group = models.ForeignKey(Child, on_delete=models.CASCADE, null=True, related_name='child_group_related')
-    value_abb = models.CharField(max_length=256, null=True)
-    value_desc = models.CharField(max_length=256, null=True)
-
-    def __str__(self):
-        return self.value_desc
 
 
