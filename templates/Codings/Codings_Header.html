@@ -163,7 +163,7 @@
     <div class="menu-item btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px " data-kt-menu-trigger="hover" data-kt-menu-placement="bottom-start">
         <!--begin::Menu link-->
         <a href="#" class="menu-link py-3">
-            <span class="menu-title">اپ های فرعی </span>
+            <span class="menu-title">سیستم های سازمانی </span>
 
                 <i class="ki-duotone ki-black-down fs-xl-3">
 </i>
@@ -176,7 +176,7 @@
             <!--begin::Menu item-->
             {% for sub in submenu %}
             <div class="menu-item">
-                <a href="{{ sub.slug }}" class="menu-link px-1 py-3">
+                <a href="{{ sub.url }}" class="menu-link px-1 py-3">
                     <div class="symbol symbol-50px">
     <img src="{{ sub.image.url }}" alt=""/>
 </div>

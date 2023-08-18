@@ -4,7 +4,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
+from Accounts.models import AuditEntry
 from Coding.models import MaterialGroup, Child
+from dashboard.models import QuickLinks, SubMenu
 
 IDENTITY = None
 CHILD = None
@@ -12,7 +14,11 @@ CHILD = None
 
 def coding_view(request):
     material_group_qs = MaterialGroup.objects.all()
-    return render(request, 'Coding/Coding_New_Style.html', {'material_group_qs':material_group_qs})
+    current_user_username=request.user.username
+    current_user_logs = AuditEntry.objects.filter(username=current_user_username)
+    quick_links = QuickLinks.objects.all()
+    submenu = SubMenu.objects.all()
+    return render(request, 'Coding/Coding_New_Style.html', {'material_group_qs':material_group_qs,'current_user_logs':current_user_logs,'quick_links':quick_links,'submenu':submenu})
 
 
 def json_material_group_data(request):

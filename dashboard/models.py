@@ -17,7 +17,7 @@ class QuickLinks(models.Model):
 class SubMenu(models.Model):
     image = models.ImageField(upload_to='media')
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length= 200,null=True)
+    url = models.CharField(max_length= 200,null=True)
 
     class Meta:
         verbose_name = 'اپ فرعی'
