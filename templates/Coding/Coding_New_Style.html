@@ -38,12 +38,13 @@
         <script>
             window.onload = doStuff;
 
-function doStuff() {
+            function doStuff() {
 
     const materialGroupDataBox = document.getElementById('material-group-data-box')
     const identityGroupDataBox = document.getElementById('identity-group-data-box')
     const childGroupDataBox = document.getElementById('child-group-data-box')
     const valueGroupDataBox = document.getElementById('value-group-data-box')
+    const btnGroupDataBox = document.getElementById('submit-group-data-box')
     $.ajax({
                 type: 'GET',
                 url : '/Coding/Parent_Group_Selected/',
@@ -52,11 +53,12 @@ function doStuff() {
                     const materialGroupData = response.data
                     materialGroupData.map(item =>{
                         const option = document.createElement('option')
+
                         option.textContent = item.material_group
                         option.setAttribute('class', 'item')
                         {#option.setAttribute('class', 'item')#}
                         option.setAttribute('value', item.material_group)
-                        {#console.log(option,'option')#}
+
                         materialGroupDataBox.appendChild(option)
                         {#console.log(materialGroupDataBox)#}
 
@@ -76,12 +78,13 @@ const childGroupInput = document.getElementById('child_groups')
 {#const subText = document.getElementById('sub-text')#}
 
 var global_selectedMaterialGroup = null
-
+var abbElements = [];
 materialGroupInput.addEventListener('change', e=>{
         {#console.log(e.target.value,'material_groups')#}
         const selectedMaterialGroup = e.target.value
         global_selectedMaterialGroup = selectedMaterialGroup
         identityGroupDataBox.innerHTML = ""
+        btnGroupDataBox.innerHTML = ""
 
     $.ajax({
         type:'GET',
@@ -93,6 +96,14 @@ materialGroupInput.addEventListener('change', e=>{
                  const option = document.createElement('option')
                         option.textContent = item.material_group
                         option.setAttribute('value', item.material_group)
+                        const td = document.createElement('td')
+                        const label = document.createElement('label')
+                         label.setAttribute('value', item.material_abb)
+                         label.setAttribute('id', 'abbr')
+                        label.innerText = 'کد ساخته شده تا این لحظه:' + item.material_abb
+                        {#console.log(option,'option')#}
+                        td.appendChild(label)
+                        btnGroupDataBox.appendChild(td)
                         identityGroupDataBox.appendChild(option)
 
             })
@@ -107,10 +118,9 @@ materialGroupInput.addEventListener('change', e=>{
 
 
 identityGroupInput.addEventListener('change', e=>{
-
         const selectedIdentityGroup = e.target.value
-
         selectedIdentityGroup.innerHTML = ""
+        valueGroupDataBox.innerHTML = ""
 
 
     $.ajax({
@@ -129,10 +139,14 @@ identityGroupInput.addEventListener('change', e=>{
                         option.setAttribute('value', innerData.description)
                          option.textContent = innerData.description
                             optionElements.push(option);
+                              var label = document.getElementById('abbr')
+                        label.innerText += innerData.abbr
                             console.log(innerData.description)
                         })
                         var th = document.createElement('th')
                         var select = document.createElement('select')
+
+                        th.setAttribute("id",item.child_group)
                         select.setAttribute("class","custom-select custom-select-lg form-select")
                 optionElements.forEach(option => {
         select.appendChild(option);
@@ -149,13 +163,16 @@ identityGroupInput.addEventListener('change', e=>{
 
 
 
+
+
             })
         },
         error : function (error){
             console.log(error)
         }
     })
-     var global_selectedIdentityGroup = null
+
+
   {#$.ajax({#}
   {#      type:'GET',#}
   {#      url : `Identity_Group_Selected/${global_selectedMaterialGroup}/${selectedIdentityGroup}`,#}
@@ -196,6 +213,9 @@ identityGroupInput.addEventListener('change', e=>{
     })
 
 }
+
+
+
 
 
 
@@ -311,6 +331,7 @@ identityGroupInput.addEventListener('change', e=>{
         <tr>
 
             <td id = "material_groups">
+
                 <select  class="custom-select custom-select-lg form-select" id="material-group-data-box">
 
                 </select>
@@ -341,6 +362,18 @@ identityGroupInput.addEventListener('change', e=>{
     </tr>
   </tbody>
 </table>
+                                <table class="table table-striped">
+  <tbody>
+
+    <tr id="submit-group-data-box">
+
+
+
+
+    </tr>
+  </tbody>
+</table>
+
 
 
 

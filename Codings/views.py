@@ -30,7 +30,7 @@ from django.forms import widgets
 # Create your views here.
 
 
-def Coding_View(request, **kwargs):
+def Coding_View(request, *args, **kwargs):
 
     print(kwargs)
 
